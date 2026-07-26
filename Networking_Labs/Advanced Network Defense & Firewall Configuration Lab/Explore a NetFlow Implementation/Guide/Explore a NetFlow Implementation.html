@@ -1,0 +1,2735 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8">
+<style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 1rem;
+      }
+      ol,
+      ul {
+        margin-bottom: 0in;
+      }
+      table {
+        margin-top: 1rem;
+        border: 1px solid gray;
+        width: 7in;
+        border-collapse: collapse;
+      }
+
+      table > thead > tr > .openTableTextBox__table-header-data {
+        text-align: center;
+        margin-top: 6pt;
+        margin-right: 0in;
+        margin-bottom: 6pt;
+        margin-left: 0in;
+        text-align: center;
+        line-height: 115%;
+        page-break-after: avoid;
+        font-size: 10pt;
+        font-family: "Arial", sans-serif;
+        font-weight: bold;
+        background: #dbe5f1;
+        padding: 0.5rem;
+      }
+      .openTableTextBox__answerText
+        table
+        > thead
+        > tr
+        > .openTableTextBox__table-header-data {
+        background: #f2dbdb !important;
+      }
+      .openTextBox__textArea-container {
+        margin-top: 6pt;
+        margin-right: 0in;
+        margin-bottom: 6pt;
+        font-size: 10pt;
+        font-family: "Arial", sans-serif;
+        width: 50%;
+      }
+      .openTableTextBox__fieldset {
+        padding: 5px;
+      }
+      td {
+        margin-top: 3pt;
+        margin-right: 0in;
+        margin-bottom: 3pt;
+        margin-left: 0in;
+        font-size: 10pt;
+        font-family: "Arial", sans-serif;
+        width: 98.85pt;
+        border: solid windowtext 1pt;
+        border-top: none;
+        padding: 0.7pt 5.75pt 0.7pt 5.75pt;
+      }
+      textarea {
+        width: 100%;
+      }
+      .answergray {
+        padding: 0.2rem;
+      }
+
+      .openTableTextBox__widget {
+        margin-top: 6pt;
+        margin-right: 0in;
+        margin-bottom: 6pt;
+        margin-left: 0.25in;
+      }
+
+      .show-answer,
+      .hide-answer {
+        padding: 0.5rem 1rem;
+        background-color: #3d692b;
+        color: #fff;
+        border: 0px;
+        cursor: pointer;
+        margin-bottom: 0.5rem;
+        margin-top: 0.5rem;
+      }
+
+      .openTextBoxController__button-container {
+        display: flex;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .openTextBoxController__button-container .btn-text {
+        margin: 10px;
+      }
+
+      .btn-text {
+        border: 0px;
+        padding: 0.5rem 1rem;
+        background-color: #3d692b;
+        color: #fff;
+        border-radius: 0;
+        cursor: pointer;
+      }
+
+      .u-display-none {
+        display: none;
+      }
+      .openTextBox__postText, openTableTextBox__postText {
+        margin-top: 0.5rem;
+      }
+      .edit-comment {
+        display: none;
+      }
+      .js-heading-inner {
+        display: none;
+      }
+      .block__title-inner,
+      .article__title-inner {
+        display: block;
+        font-size: 1.5em;
+        margin-block-start: 0.83em;
+        margin-block-end: 0.83em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        font-weight: bold;
+      }
+      h2{
+        font-size: 1.25em;
+      }
+      h3{
+        font-size: 1.125em;
+      }
+      .table
+        > .table-inner
+        > .table-wrapper
+        > .table-widget
+        > table
+        > tbody
+        > tr
+        > th {
+        border: solid windowtext 1pt;
+      }
+      table tbody tr th, table thead tr th{
+        border: solid windowtext 1pt;
+        background-color: #d6d8dc;
+      }
+      .openTableTextBox__answerText
+        table
+        > thead
+        > tr
+        > .openTableTextBox__table-header-data {
+        background: #f2dbdb !important;
+      }
+      .command-output > .table-inner > .table-wrapper > .table-widget > table,
+      .command-output
+        > .table-inner
+        > .table-wrapper
+        > .table-widget
+        > table
+        > tbody
+        > tr
+        > td,
+      .command-output
+        > .table-inner
+        > .table-wrapper
+        > .table-widget
+        > table
+        > tbody
+        > tr
+        > th {
+        border: none !important;
+        text-align: right !important;
+      }
+      .simple-table > .table-inner > .table-wrapper{
+        margin-left: 1.5rem;
+      }
+      .openTextBox__widget {
+        margin-left: 1.5rem;
+      }
+      img {
+        width: 30%;
+        height: auto;
+        margin-top: 1rem;
+        margin-left: 3rem;
+      }
+      .answergray {
+        background-color: #ccc;
+      }
+      .openTableTextBox__widget > .answergray {
+        background-color: #fff !important;
+      }
+      li > ul,ol > li{
+        margin-left: 0px !important;
+      }
+      img {
+        width: 30%;
+        height: auto;
+        margin-top: 1rem;
+        margin-left: 3rem;
+      }
+      
+      .component__title{
+        font-family: inherit;
+        font-size: 1.65em;
+        font-weight: 600;
+        line-height: 1.5;
+      }
+
+      .component__body {
+        padding-top: 20px;
+        padding-bottom: 20px;
+      }
+
+      .accessibility-completion-indicator{
+        display: none;
+      }
+
+      .check__hidden {
+        display: none;
+      }
+
+      .check__button {
+        border: none;
+        border-radius: 6px !important;
+        background-color: #6abf4b;
+        color: #fff;
+        min-width: 100px;
+        margin: 0.625rem 0;
+        padding: 0.7rem;
+      }
+
+      .check__widget .check__solution .DevConfigGray {
+        background-color: rgb(214,216,220);
+        font-weight: bold;
+      }
+
+      .check-inner .check__widget .check__solution .DevConfigs {
+        margin: 0px;
+        line-height: 115%;
+        font-family: "Courier New", Courier, monospace;
+      }
+
+      .check__solution  {
+        line-height: 1.5;
+      }
+      .mcq__inner .mcq__widget .mcq__widget-inner {
+        margin-block: 1rem;
+      }
+      .mcq__inner .mcq__widget .mcq__item {
+        display: flex;
+        gap: 0.2rem;
+      }
+      .mcq__inner .mcq__widget .mcq__item .mcq__item-label .mcq__item-text .screenReader-position-text{
+        display: none;
+      }
+      .opentabletextbox-inner .opentabletextBox__widget .openTableTextBox__answerText.answergray {
+        background-color: transparent;
+      }
+      .openTextBox__inner .openTextBox__widget .answergray.is-graphic-in-openTextBox{
+        background-color: transparent;
+      }
+      .openTextBox__inner .openTextBox__widget .answergray.is-graphic-in-openTextBox img{
+        margin-block: 1rem;
+        margin-left: initial;
+      }
+      .component__content .component__body-inner .pageTracer-h4-title-hide {
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+        font-size: 0px;
+        color: rgb(var(--neutral-2));
+        font-weight: normal;
+      }
+      .table-inner .table__widget table tr.TableHeading th, .table-inner .table__widget table tr.TableHeading td, .table-inner .table__widget table tr td.TableHeading, .opentabletextbox-table thead tr.TableHeading th, .opentabletextbox-table tbody tr.TableHeading td, .opentabletextbox-table tbody tr td.TableHeading {
+        background-color: #d6d8dc;
+        text-align: center;
+        font-weight: bold;
+      }
+      .component__content .component__body-inner .CMD, .component__content .component__body-inner .CMDOutput, .component__content .component__body-inner .CMDOutput__table{
+        margin-top: 4px;
+        margin-inline-end: 0px;
+        margin-bottom: 4px;
+        margin-inline-start: 30px;
+        font-family: "Courier New", Courier, monospace;
+      }
+      [dir="rtl"] .component__content .component__body-inner .CMDOutput__table span {
+        direction: ltr;
+        display: inline-block;
+      }
+      .openTextBox__inner .openTextBox__widget .CMD, .openTextBox__inner .openTextBox__widget .CMDOutput{
+        margin-top: 4px;
+        margin-inline-end: 0px;
+        margin-bottom: 4px;
+        font-family: "Courier New", Courier, monospace;
+      }
+      .openTextBox__inner .openTextBox__widget .DnTbold, .openTextBox__inner .openTextBox__widget .BodyTextL25Bold, .component__content .component__body-inner .BodyTextL25Bold, .component__content .component__body-inner .DnTbold, .table-inner .table__widget table tr .DnTbold {
+        font-weight: bold;
+      }
+      .component__content .component__body-inner .SubStepNum {
+        text-indent: -25.5px;
+        margin-inline-start: 50px;
+      }
+      .component__content .component__body-inner .BodyTextL50 {
+        margin-inline-start: 30px;
+      }
+      .component__content .component__body-inner .Bulletlevel1 {
+        text-indent: -19px;
+        margin-inline-start: 48px;
+      }
+      .component__content .component__body-inner .Bulletlevel2 {
+          text-indent: -19px;
+          margin-inline-start: 72px;
+      }
+      .openTextBox__inner .openTextBox__widget .ReflectionQ, .component__content .component__body-inner .SubStepAlpha {
+          text-indent: -25.5px;
+          margin-inline-start: 30px;
+      }
+    </style>
+
+</head><body><!---->
+            <div class="article 6671383e-40ca-4cde-86a1-c2f5a2f9a749 remove-padding-top remove-padding-bottom ">
+                <div class="article__inner">
+                <div class=" no-adaptive-scroll">
+                    <!--?lit$158578489$-->
+                        <div class=""> 
+                            <base-view type="article" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="article__header-wrapper remove-padding-top remove-padding-bottom ">
+        <div class="article__header ">
+              <div class="article__header-inner ">
+                  
+                    <!--?lit$158578489$--> <div class=" article__title ">
+                      <!--?lit$158578489$--><heading-view aria-hidden="true" id="6671383e-40ca-4cde-86a1-c2f5a2f9a749-heading-view" headingtitle="Packet Tracer - Explore a NetFlow Implementation" modelid="6671383e-40ca-4cde-86a1-c2f5a2f9a749" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="js-heading is-incomplete">
+        <div class="js-heading-inner" role="heading" id="article-heading" aria-level="2">
+        <span class="aria-label"> <!--?lit$158578489$-->Incomplete &nbsp;<!--?lit$158578489$-->Packet Tracer - Explore a NetFlow Implementation</span>
+        </div>
+      </div>
+    </heading-view>
+                        <div tabindex="0" role="heading" class="article__title-inner " aria-level="2">
+                        <span class="accessibility-completion-indicator"><!--?lit$158578489$-->Incomplete </span>
+                        <!--?lit$158578489$-->Packet Tracer - Explore a NetFlow Implementation</div>
+                      </div>
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                            <div class="block__container " style="">
+                                <!--?lit$158578489$--><!---->
+                                    <block-view modelid="bc45a8f6-dfa3-4fa5-904a-7cb3eb626971" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme" sgpulse-type="block" style="width: 4.7619%;"><!---->
+                
+                <div data-socialgoodpulse-id="bc45a8f6-dfa3-4fa5-904a-7cb3eb626971" class="bc45a8f6-dfa3-4fa5-904a-7cb3eb626971 block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="bc45a8f6-dfa3-4fa5-904a-7cb3eb626971" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+              <div class="block__header-inner ">
+                  
+                    <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$158578489$--><!----><text-view modelid="f2b87dfd-971c-408d-b9a1-dcd04175be5b" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="f2b87dfd-971c-408d-b9a1-dcd04175be5b" class="component text f2b87dfd-971c-408d-b9a1-dcd04175be5b  is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header text__header">
+              <div class="component__header-inner text__header-inner">
+                  
+                    <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$--> <div class="component__content">
+                      <div tabindex="0" class="component__body text__body">
+                        <div class="component__body-inner text__body-inner"><!--?lit$158578489$--><h2>Objectives</h2> <b><p>Part 1: Observe NetFlow Flow Records - One Direction</p><p>Part 2: Observe NetFlow Records for a Session that Enters and Leaves the Collector</p></b> <h2>Background / Scenario</h2> <p>In this activity, you will use Packet Tracer to create network traffic and observe the corresponding NetFlow flow records in a NetFlow collector. Packet Tracer offers a basic simulation of NetFlow functionality. It is not a replacement for learning NetFlow on physical equipment. Some differences may exist between NetFlow flow records generated by Packet Tracer and by records created by full-featured network equipment.</p> <h2>Instructions</h2> <h2>Part 1: Observe NetFlow Flow Records - One Direction</h2> <h2>Step 1: Open the NetFlow collector.</h2> <p class="SubStepAlpha"><span>a.</span><span>&nbsp;&nbsp;</span>From the NetFlow Collector, click the <b>Desktop</b> tab. Click the <b>Netflow Collector</b> icon.</p> <p class="SubStepAlpha"><span>b.</span><span>&nbsp;&nbsp;</span>Click the <b>On</b> radio button to activate the collector as necessary. Position and size the window so that it is visible from the Packet Tracer topology window.</p> <h2>Step 2: Ping the default gateway from <span>PC-1.</span></h2> <p class="SubStepAlpha"><span>a.</span><span>&nbsp;&nbsp;</span>Click <span><b>PC-1</b></span>.</p> <p class="SubStepAlpha"><span>b.</span><span>&nbsp;&nbsp;</span>Open the <b>Desktop</b> tab and click the <b>Command Prompt</b> icon.</p> <p class="SubStepAlpha"><span>c.</span><span>&nbsp;&nbsp;</span>Enter the <b>ping</b> command to test connectivity to the default gateway at 10.0.0.1.</p> <p class="CMD">C:\&gt; <b>ping 10.0.0.1</b></p> <p class="SubStepAlpha"><span>d.</span><span>&nbsp;&nbsp;</span>After a brief delay, the NetFlow Collector screen will display a pie chart.</p> <p><b>Note</b>: The first set of pings may not be sent to the NetFlow Collector because the ARP process must first resolve IP and MAC addresses. If after 30 seconds, a pie chart does not appear, ping the default gateway again.</p> <p class="SubStepAlpha"><span>e.</span><span>&nbsp;&nbsp;</span>Click either the pie chart or the legend entry to display the flow record details.</p> <p class="SubStepAlpha"><span>f.</span><span>&nbsp;&nbsp;</span>The flow record will have entries similar to those in the table below. Your timestamps will be different.</p></div>
+                      </div>
+                    </div>
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="3a20de73-183a-4e93-9413-d1625ac40e18" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme" sgpulse-type="block" style="width: 4.7619%;"><!---->
+                
+                <div data-socialgoodpulse-id="3a20de73-183a-4e93-9413-d1625ac40e18" class="3a20de73-183a-4e93-9413-d1625ac40e18 block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="3a20de73-183a-4e93-9413-d1625ac40e18" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+              <div class="block__header-inner ">
+                  
+                    <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$158578489$--><!----><table-view modelid="af42d84b-a44f-4135-9e70-d507da9078c0" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+        <div class="table-inner component__inner"> 
+            <div data-socialgoodpulse-id="af42d84b-a44f-4135-9e70-d507da9078c0" class="component table af42d84b-a44f-4135-9e70-d507da9078c0  is-full   ">
+                <div class="component__header-container">
+                    <div data-socialgoodpulse-id="af42d84b-a44f-4135-9e70-d507da9078c0" class="table ">
+                        <base-view type="component" lowercase_component="table" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header table__header">
+              <div class="component__header-inner table__header-inner">
+                  
+                    <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                    </div>
+                </div>
+
+
+                <div class="component__widget table__widget">
+
+                <table tabindex="0" style="min-width: 800px">
+                <!--?lit$158578489$--><!---->
+                    <tbody><tr class="table-row nth-child-0 TableHeading">
+                    <!--?lit$158578489$--><!---->
+                                <th scope="col" tabindex="0" rowspan="1" colspan="1" class="table-data table-heading nth-child-0 ">
+                                   <!--?lit$158578489$--><p>Entry</p>
+                                    <!--?lit$158578489$-->
+                                </th>
+                                <!----><!---->
+                                <th scope="col" tabindex="0" rowspan="1" colspan="1" class="table-data table-heading nth-child-1 ">
+                                   <!--?lit$158578489$--><p><span>Value</span></p>
+                                    <!--?lit$158578489$-->
+                                </th>
+                                <!----><!---->
+                                <th scope="col" tabindex="0" rowspan="1" colspan="1" class="table-data table-heading nth-child-2 ">
+                                   <!--?lit$158578489$--><p><span>Explanation</span></p>
+                                    <!--?lit$158578489$-->
+                                </th>
+                                <!---->
+                   </tr>  
+                    <!----><!---->
+                    <tr class="table-row nth-child-1 ">
+                    <!--?lit$158578489$--><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-0 " width="200">
+                                <!--?lit$158578489$--><p>Traffic contribution</p>
+                                 <!--?lit$158578489$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-1 " width="">
+                                <!--?lit$158578489$--><p>100% (1/1)</p>
+                                 <!--?lit$158578489$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-2 " width="">
+                                <!--?lit$158578489$--><p>This is the proportion of all traffic represented by this flow.</p>
+                                 <!--?lit$158578489$-->
+                                </td>
+                                <!---->
+                   </tr>  
+                    <!----><!---->
+                    <tr class="table-row nth-child-2 ">
+                    <!--?lit$158578489$--><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-0 " width="200">
+                                <!--?lit$158578489$--><p>IPV4 SOURCE ADDRESS</p>
+                                 <!--?lit$158578489$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-1 " width="">
+                                <!--?lit$158578489$--><p>10.0.0.10</p>
+                                 <!--?lit$158578489$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-2 " width="">
+                                <!--?lit$158578489$--><p>This is the source IP address of the flow packets.</p>
+                                 <!--?lit$158578489$-->
+                                </td>
+                                <!---->
+                   </tr>  
+                    <!----><!---->
+                    <tr class="table-row nth-child-3 ">
+                    <!--?lit$158578489$--><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-0 " width="200">
+                                <!--?lit$158578489$--><p>IPV4 DESTINATION ADDRESS</p>
+                                 <!--?lit$158578489$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-1 " width="">
+                                <!--?lit$158578489$--><p>10.0.0.1</p>
+                                 <!--?lit$158578489$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-2 " width="">
+                                <!--?lit$158578489$--><p>This is the destination IP address of the flow packets.</p>
+                                 <!--?lit$158578489$-->
+                                </td>
+                                <!---->
+                   </tr>  
+                    <!----><!---->
+                    <tr class="table-row nth-child-4 ">
+                    <!--?lit$158578489$--><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-0 " width="200">
+                                <!--?lit$158578489$--><p>TRNS SOURCE PORT</p>
+                                 <!--?lit$158578489$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-1 " width="">
+                                <!--?lit$158578489$--><p>0</p>
+                                 <!--?lit$158578489$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-2 " width="">
+                                <!--?lit$158578489$--><p>This is the transport layer source port. The value is 0 because this is an ICMP flow.</p>
+                                 <!--?lit$158578489$-->
+                                </td>
+                                <!---->
+                   </tr>  
+                    <!----><!---->
+                    <tr class="table-row nth-child-5 ">
+                    <!--?lit$158578489$--><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-0 " width="200">
+                                <!--?lit$158578489$--><p>TRNS DESTINATION PORT</p>
+                                 <!--?lit$158578489$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-1 " width="">
+                                <!--?lit$158578489$--><p>0</p>
+                                 <!--?lit$158578489$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-2 " width="">
+                                <!--?lit$158578489$--><p>This is the transport layer destination port. The value is 0 because this is an ICMP flow.</p>
+                                 <!--?lit$158578489$-->
+                                </td>
+                                <!---->
+                   </tr>  
+                    <!----><!---->
+                    <tr class="table-row nth-child-6 ">
+                    <!--?lit$158578489$--><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-0 " width="200">
+                                <!--?lit$158578489$--><p>IP PROTOCOL</p>
+                                 <!--?lit$158578489$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-1 " width="">
+                                <!--?lit$158578489$--><p>1</p>
+                                 <!--?lit$158578489$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-2 " width="">
+                                <!--?lit$158578489$--><p>This identifies Layer 4 service, typically 1 for ICMP, 6 for TCP, and 17 for UDP.</p>
+                                 <!--?lit$158578489$-->
+                                </td>
+                                <!---->
+                   </tr>  
+                    <!----><!---->
+                    <tr class="table-row nth-child-7 ">
+                    <!--?lit$158578489$--><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-0 " width="200">
+                                <!--?lit$158578489$--><p>timestamp first</p>
+                                 <!--?lit$158578489$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-1 " width="">
+                                <!--?lit$158578489$--><p>00:47:49.593</p>
+                                 <!--?lit$158578489$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-2 " width="">
+                                <!--?lit$158578489$--><p>This is the timestamp for the beginning of the flow.</p>
+                                 <!--?lit$158578489$-->
+                                </td>
+                                <!---->
+                   </tr>  
+                    <!----><!---->
+                    <tr class="table-row nth-child-8 ">
+                    <!--?lit$158578489$--><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-0 " width="200">
+                                <!--?lit$158578489$--><p>timestamp last</p>
+                                 <!--?lit$158578489$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-1 " width="">
+                                <!--?lit$158578489$--><p>00:47:52.598</p>
+                                 <!--?lit$158578489$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-2 " width="">
+                                <!--?lit$158578489$--><p>This is the timestamp for the last packet in the flow.</p>
+                                 <!--?lit$158578489$-->
+                                </td>
+                                <!---->
+                   </tr>  
+                    <!----><!---->
+                    <tr class="table-row nth-child-9 ">
+                    <!--?lit$158578489$--><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-0 " width="200">
+                                <!--?lit$158578489$--><p>tcp flags</p>
+                                 <!--?lit$158578489$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-1 " width="">
+                                <!--?lit$158578489$--><p>0x00</p>
+                                 <!--?lit$158578489$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-2 " width="">
+                                <!--?lit$158578489$--><p>This is the TCP flag value. In this case, no TCP session was involved because the protocol is ICMP.</p>
+                                 <!--?lit$158578489$-->
+                                </td>
+                                <!---->
+                   </tr>  
+                    <!----><!---->
+                    <tr class="table-row nth-child-10 ">
+                    <!--?lit$158578489$--><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-0 " width="200">
+                                <!--?lit$158578489$--><p>counter bytes</p>
+                                 <!--?lit$158578489$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-1 " width="">
+                                <!--?lit$158578489$--><p>512</p>
+                                 <!--?lit$158578489$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-2 " width="">
+                                <!--?lit$158578489$--><p>This is the number of bytes in the flow.</p>
+                                 <!--?lit$158578489$-->
+                                </td>
+                                <!---->
+                   </tr>  
+                    <!----><!---->
+                    <tr class="table-row nth-child-11 ">
+                    <!--?lit$158578489$--><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-0 " width="200">
+                                <!--?lit$158578489$--><p>counter packets</p>
+                                 <!--?lit$158578489$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-1 " width="">
+                                <!--?lit$158578489$--><p>4</p>
+                                 <!--?lit$158578489$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-2 " width="">
+                                <!--?lit$158578489$--><p>This is the number of packets in the flow.</p>
+                                 <!--?lit$158578489$-->
+                                </td>
+                                <!---->
+                   </tr>  
+                    <!----><!---->
+                    <tr class="table-row nth-child-12 ">
+                    <!--?lit$158578489$--><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-0 " width="200">
+                                <!--?lit$158578489$--><p>interface input</p>
+                                 <!--?lit$158578489$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-1 " width="">
+                                <!--?lit$158578489$--><p>Gig0/0</p>
+                                 <!--?lit$158578489$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-2 " width="">
+                                <!--?lit$158578489$--><p>This is the interface of the flow exporter that collected the flow in the input direction (into the monitoring device interface).</p>
+                                 <!--?lit$158578489$-->
+                                </td>
+                                <!---->
+                   </tr>  
+                    <!----><!---->
+                    <tr class="table-row nth-child-13 ">
+                    <!--?lit$158578489$--><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-0 " width="200">
+                                <!--?lit$158578489$--><p>interface output</p>
+                                 <!--?lit$158578489$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-1 " width="">
+                                <!--?lit$158578489$--><p>Null</p>
+                                 <!--?lit$158578489$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-2 " width="">
+                                <!--?lit$158578489$--><p>This is the interface of the flow exporter that collected the flow in the output direction (out of the monitoring device interface). The value is “Null” because this was a ping to the input interface.</p>
+                                 <!--?lit$158578489$-->
+                                </td>
+                                <!---->
+                   </tr>  
+                    <!---->
+                </tbody></table>
+                </div>
+            </div>
+        <div>
+        </div>
+        </div></div></table-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="ce6edbab-3969-4abc-a867-d645d83ead26" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme" sgpulse-type="block" style="width: 4.7619%;"><!---->
+                
+                <div data-socialgoodpulse-id="ce6edbab-3969-4abc-a867-d645d83ead26" class="ce6edbab-3969-4abc-a867-d645d83ead26 block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="ce6edbab-3969-4abc-a867-d645d83ead26" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+              <div class="block__header-inner ">
+                  
+                    <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$158578489$--><!----><text-view modelid="f5db2787-6754-4a80-868a-0f07853df440" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="f5db2787-6754-4a80-868a-0f07853df440" class="component text f5db2787-6754-4a80-868a-0f07853df440  is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header text__header">
+              <div class="component__header-inner text__header-inner">
+                  
+                    <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$--> <div class="component__content">
+                      <div tabindex="0" class="component__body text__body">
+                        <div class="component__body-inner text__body-inner"><!--?lit$158578489$--><p>In this case, the flow represents the ICMP ping from host 10.0.0.10 to 10.0.0.1. Four ping packets were in the flow. The packets entered interface G0/0 of the exporter.</p> <p><b>Note</b>: In this activity, the Edge router has been configured as a NetFlow flow exporter. The LAN interface is configured to monitor flows that enter it from the LAN. The serial interface has been configured to collect flows that enter it from the internet. This has been done to simplify this activity.</p> <p>To see traffic that matches a full bi-directional session, the NetFlow exporter would need to be configured to collect flows entering and leaving a network.</p> <h3>Step 3: Create additional traffic.</h3> <p class="SubStepAlpha"><span>a.</span><span>&nbsp;&nbsp;</span>Click <b>PC-2 &gt; Desktop</b>.</p> <p class="SubStepAlpha"><span>b.</span><span>&nbsp;&nbsp;</span>Open a command prompt and <b>ping</b> the default gateway 10.0.0.1.</p></div>
+                      </div>
+                    </div>
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="77277352-db39-4b4e-aac3-aa558c08967e" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme" sgpulse-type="block" style="width: 4.7619%;"><!---->
+                
+                <div data-socialgoodpulse-id="77277352-db39-4b4e-aac3-aa558c08967e" class="77277352-db39-4b4e-aac3-aa558c08967e block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="77277352-db39-4b4e-aac3-aa558c08967e" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+              <div class="block__header-inner ">
+                  
+                    <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$158578489$--><!----><opentextbox-view modelid="6d6e5af7-90b9-4111-80a2-f4d232409db5" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="6d6e5af7-90b9-4111-80a2-f4d232409db5" class="component opentextbox 6d6e5af7-90b9-4111-80a2-f4d232409db5  is-undefined   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="6d6e5af7-90b9-4111-80a2-f4d232409db5" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+              <div class="component__header-inner openTextBox__header-inner">
+                  
+                    <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$158578489$--> <div class="openTextBox__preText"><!--?lit$158578489$--><p class="BodyTextL25">What do you expect to see in the NetFlow collector flow records? Will the statistics for the existing flow record change, or will a new flow appear in the pie chart?</p></div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$158578489$--><!--?lit$158578489$-->Answer Area<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Type your answer here." aria-label="Type your answer here.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$158578489$-->
+                      <!--?lit$158578489$--><p class="BodyTextL50Answer"><span class="AnswerGray"><span style=" border:none"><span style="border:none">A flow is defined as a unidirectional flow of packets that share the same source and destination IP addresses and port numbers, as well as the same IP protocol. Because this traffic will have a different source IP address, it will create a new flow record that is represented by a new color-coded portion of the pie chart.</span></span></span></p>
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$158578489$-->Show Answer</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$158578489$-->Hide Answer</button>                    
+                      </div>
+                      <!--?lit$158578489$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="c4d66f2c-2894-4d52-83c0-4e97f7beedee" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme" sgpulse-type="block" style="width: 4.7619%;"><!---->
+                
+                <div data-socialgoodpulse-id="c4d66f2c-2894-4d52-83c0-4e97f7beedee" class="c4d66f2c-2894-4d52-83c0-4e97f7beedee block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="c4d66f2c-2894-4d52-83c0-4e97f7beedee" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+              <div class="block__header-inner ">
+                  
+                    <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$158578489$--><!----><text-view modelid="d74f8858-dd63-49fc-8467-1e5227ed8be7" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="d74f8858-dd63-49fc-8467-1e5227ed8be7" class="component text d74f8858-dd63-49fc-8467-1e5227ed8be7  is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header text__header">
+              <div class="component__header-inner text__header-inner">
+                  
+                    <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$--> <div class="component__content">
+                      <div tabindex="0" class="component__body text__body">
+                        <div class="component__body-inner text__body-inner"><!--?lit$158578489$--><h4 class="pageTracer-h4-title-hide">Question:</h4> <p class="SubStepAlpha"><span>c.</span><span>&nbsp;&nbsp;</span>Return to PC-1 and repeat the ping to the gateway.</p></div>
+                      </div>
+                    </div>
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="1bcc826a-5f63-4c23-adc8-12a0696901d8" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme" sgpulse-type="block" style="width: 4.7619%;"><!---->
+                
+                <div data-socialgoodpulse-id="1bcc826a-5f63-4c23-adc8-12a0696901d8" class="1bcc826a-5f63-4c23-adc8-12a0696901d8 block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="1bcc826a-5f63-4c23-adc8-12a0696901d8" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+              <div class="block__header-inner ">
+                  
+                    <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$158578489$--><!----><opentextbox-view modelid="3ef5a8a7-3973-4e28-b99b-4ae72ea6457c" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="3ef5a8a7-3973-4e28-b99b-4ae72ea6457c" class="component opentextbox 3ef5a8a7-3973-4e28-b99b-4ae72ea6457c  is-undefined   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="3ef5a8a7-3973-4e28-b99b-4ae72ea6457c" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+              <div class="component__header-inner openTextBox__header-inner">
+                  
+                    <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$158578489$--> <div class="openTextBox__preText"><!--?lit$158578489$--><p class="BodyTextL25">How will this traffic be represented? As a new segment in the pie chart or will it modify the values in the existing flow record?</p></div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$158578489$--><!--?lit$158578489$-->Answer Area<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Type your answer here." aria-label="Type your answer here.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$158578489$-->
+                      <!--?lit$158578489$--><p>The details of the original flow remain the same, however the proportion of traffic represented by the flow has doubled.</p>
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$158578489$-->Show Answer</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$158578489$-->Hide Answer</button>                    
+                      </div>
+                      <!--?lit$158578489$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="e2e45eaa-5f15-43fc-888b-830f3445fe45" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme" sgpulse-type="block" style="width: 4.7619%;"><!---->
+                
+                <div data-socialgoodpulse-id="e2e45eaa-5f15-43fc-888b-830f3445fe45" class="e2e45eaa-5f15-43fc-888b-830f3445fe45 block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="e2e45eaa-5f15-43fc-888b-830f3445fe45" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+              <div class="block__header-inner ">
+                  
+                    <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$158578489$--><!----><text-view modelid="a3bf180f-8c5c-41fd-90a9-1051ffac31af" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="a3bf180f-8c5c-41fd-90a9-1051ffac31af" class="component text a3bf180f-8c5c-41fd-90a9-1051ffac31af  is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header text__header">
+              <div class="component__header-inner text__header-inner">
+                  
+                    <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$--> <div class="component__content">
+                      <div tabindex="0" class="component__body text__body">
+                        <div class="component__body-inner text__body-inner"><!--?lit$158578489$--><p class="SubStepAlpha"><span>d.</span><span>&nbsp;&nbsp;</span>Issue pings from PC-3 and PC-4 to the default gateway address.</p></div>
+                      </div>
+                    </div>
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="c133ed56-ef3c-4733-8b10-f92dd03d58b3" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme" sgpulse-type="block" style="width: 4.7619%;"><!---->
+                
+                <div data-socialgoodpulse-id="c133ed56-ef3c-4733-8b10-f92dd03d58b3" class="c133ed56-ef3c-4733-8b10-f92dd03d58b3 block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="c133ed56-ef3c-4733-8b10-f92dd03d58b3" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+              <div class="block__header-inner ">
+                  
+                    <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$158578489$--><!----><opentextbox-view modelid="1e51dd1a-5474-40bf-87a8-c44e8b845299" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="1e51dd1a-5474-40bf-87a8-c44e8b845299" class="component opentextbox 1e51dd1a-5474-40bf-87a8-c44e8b845299  is-undefined   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="1e51dd1a-5474-40bf-87a8-c44e8b845299" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+              <div class="component__header-inner openTextBox__header-inner">
+                  
+                    <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$158578489$--> <div class="openTextBox__preText"><!--?lit$158578489$--><p class="BodyTextL25">What should happen to the display in the flow collector?</p></div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$158578489$--><!--?lit$158578489$-->Answer Area<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Type your answer here." aria-label="Type your answer here.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$158578489$-->
+                      <!--?lit$158578489$--><p><span><span><span>A new record should appear for each flow</span></span></span><span><span><span>.</span></span></span></p>
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$158578489$-->Show Answer</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$158578489$-->Hide Answer</button>                    
+                      </div>
+                      <!--?lit$158578489$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="2a9d1be6-8a31-4cc9-8964-1e00bc5044b1" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme" sgpulse-type="block" style="width: 4.7619%;"><!---->
+                
+                <div data-socialgoodpulse-id="2a9d1be6-8a31-4cc9-8964-1e00bc5044b1" class="2a9d1be6-8a31-4cc9-8964-1e00bc5044b1 block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="2a9d1be6-8a31-4cc9-8964-1e00bc5044b1" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+              <div class="block__header-inner ">
+                  
+                    <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$158578489$--><!----><text-view modelid="459d8083-9977-42f8-b8f7-fe996df94812" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="459d8083-9977-42f8-b8f7-fe996df94812" class="component text 459d8083-9977-42f8-b8f7-fe996df94812  is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header text__header">
+              <div class="component__header-inner text__header-inner">
+                  
+                    <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$--> <div class="component__content">
+                      <div tabindex="0" class="component__body text__body">
+                        <div class="component__body-inner text__body-inner"><!--?lit$158578489$--><h3>Part 2: Observe NetFlow Records for a Session that Enters and Leaves the Collector</h3> <p>The NetFlow exporter has been configured to collect flows that exit the LAN and enter the router from the Internet.</p> <h3>Step 1: Access the Web Server by IP Address.</h3> <p>Before continuing, power cycle the NetFlow Collector to clear the flows.</p> <p class="SubStepAlpha"><span>a.</span><span>&nbsp;&nbsp;</span>Click <b>NetFlow Collector &gt; Physical</b> tab.</p> <p class="SubStepAlpha"><span>b.</span><span>&nbsp;&nbsp;</span>Click the red power button to turn off the server. Then click it again to turn the server back on. (<b>Note</b>: You may need to scroll over or zoom out.)</p> <p class="SubStepAlpha"><span>c.</span><span>&nbsp;&nbsp;</span>From the NetFlow Collector, click the <b>Desktop</b> tab.</p> <p class="SubStepAlpha"><span>d.</span><span>&nbsp;&nbsp;</span>Click the Netflow Collector icon. Click the “On” radio button to activate the collector. Close the NetFlow Collector window.</p></div>
+                      </div>
+                    </div>
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="3c542180-e169-4982-bf2e-fd4034869a56" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme" sgpulse-type="block" style="width: 4.7619%;"><!---->
+                
+                <div data-socialgoodpulse-id="3c542180-e169-4982-bf2e-fd4034869a56" class="3c542180-e169-4982-bf2e-fd4034869a56 block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="3c542180-e169-4982-bf2e-fd4034869a56" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+              <div class="block__header-inner ">
+                  
+                    <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$158578489$--><!----><opentextbox-view modelid="cea22827-8c21-4966-bd82-667178389c31" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="cea22827-8c21-4966-bd82-667178389c31" class="component opentextbox cea22827-8c21-4966-bd82-667178389c31  is-undefined   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="cea22827-8c21-4966-bd82-667178389c31" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+              <div class="component__header-inner openTextBox__header-inner">
+                  
+                    <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$158578489$--> <div class="openTextBox__preText"><!--?lit$158578489$--><p class="ReflectionQ"><span>e.</span><span>&nbsp;&nbsp;</span>Before you access a web server from PC-1, predict how many flows will there be in the pie chart? Explain.</p></div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$158578489$--><!--?lit$158578489$-->Answer Area<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Type your answer here." aria-label="Type your answer here.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$158578489$-->
+                      <!--?lit$158578489$--><p>Because the flows leaving the LAN and entering the Edge router from outside will be collected, there will be two flows, one for the request packets sent to the server, and one for the data returned from the server.</p>
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$158578489$-->Show Answer</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$158578489$-->Hide Answer</button>                    
+                      </div>
+                      <!--?lit$158578489$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="c1f08e4e-8104-4939-b2c3-1c027e0d652e" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme" sgpulse-type="block" style="width: 4.7619%;"><!---->
+                
+                <div data-socialgoodpulse-id="c1f08e4e-8104-4939-b2c3-1c027e0d652e" class="c1f08e4e-8104-4939-b2c3-1c027e0d652e block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="c1f08e4e-8104-4939-b2c3-1c027e0d652e" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+              <div class="block__header-inner ">
+                  
+                    <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$158578489$--><!----><text-view modelid="1f1de7a3-5614-4265-9236-ea70dd26f95e" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="1f1de7a3-5614-4265-9236-ea70dd26f95e" class="component text 1f1de7a3-5614-4265-9236-ea70dd26f95e  is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header text__header">
+              <div class="component__header-inner text__header-inner">
+                  
+                    <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$--> <div class="component__content">
+                      <div tabindex="0" class="component__body text__body">
+                        <div class="component__body-inner text__body-inner"><!--?lit$158578489$--><p>From your knowledge of network protocols and NetFlow, predict the values for the web page requests leaving the LAN.</p></div>
+                      </div>
+                    </div>
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="d9e2258a-e7e6-4396-bb3d-8ab4fc09003e" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme" sgpulse-type="block" style="width: 4.7619%;"><!---->
+                
+                <div data-socialgoodpulse-id="d9e2258a-e7e6-4396-bb3d-8ab4fc09003e" class="d9e2258a-e7e6-4396-bb3d-8ab4fc09003e block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="d9e2258a-e7e6-4396-bb3d-8ab4fc09003e" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+              <div class="block__header-inner ">
+                  
+                    <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$158578489$--><!----><opentabletextbox-view modelid="a63fc6b4-5e56-437a-b1c9-439981c5a05e" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme" sgpulse-type="component"><!---->
+      <div class="component">
+        <div class="opentabletextbox-inner component__inner">
+          <div data-socialgoodpulse-id="a63fc6b4-5e56-437a-b1c9-439981c5a05e" class="component opentabletextbox a63fc6b4-5e56-437a-b1c9-439981c5a05e  is-full   ">
+            <div class="component__header-container">
+              <div data-socialgoodpulse-id="a63fc6b4-5e56-437a-b1c9-439981c5a05e" class="opentabletextbox ">
+                <base-view type="component" lowercase_component="openTableTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTableTextBox__header">
+              <div class="component__header-inner openTableTextBox__header-inner">
+                  
+                    <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+              </div>
+            </div>
+            <div class="component__widget opentabletextBox__widget question-container ">
+              <div class="openTableTextBox__preText">
+                <!--?lit$158578489$-->
+              </div>
+              <div class="opentabletextbox-container openTableTextBox__table-container">
+                <table class="opentabletextbox-table" tabindex="0">
+                  <!--?lit$158578489$-->
+                        <thead class="openTableTextBox__table-header">
+                          <tr>
+                            <!--?lit$158578489$--><!----><th tabindex="0" scope="col"><!--?lit$158578489$-->Record Field</th><!----><!----><th tabindex="0" scope="col"><!--?lit$158578489$-->Value</th><!----><!----><th tabindex="0" scope="col"><!--?lit$158578489$-->Guidelines</th><!---->
+                          </tr>
+                        </thead>
+                  <tbody>
+                    <!--?lit$158578489$--><!---->
+                        <tr class="openTableTextBox__table-row ">
+                          <!--?lit$158578489$--><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$158578489$--><div><!--?lit$158578489$-->Source IP address</div>
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$158578489$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$158578489$--><!--?lit$158578489$-->Answer Area<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Type your answer here.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$158578489$--><div><!--?lit$158578489$-->N/A</div>
+                                </div>
+                              </td>
+                            <!---->
+                        </tr>
+                      <!----><!---->
+                        <tr class="openTableTextBox__table-row ">
+                          <!--?lit$158578489$--><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$158578489$--><div><!--?lit$158578489$-->Destination IP address</div>
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$158578489$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$158578489$--><!--?lit$158578489$-->Answer Area<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Type your answer here.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$158578489$--><div><!--?lit$158578489$-->N/A</div>
+                                </div>
+                              </td>
+                            <!---->
+                        </tr>
+                      <!----><!---->
+                        <tr class="openTableTextBox__table-row ">
+                          <!--?lit$158578489$--><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$158578489$--><div><!--?lit$158578489$-->Source Port</div>
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$158578489$--><div><!--?lit$158578489$-->1025–5000 (MS Windows default, which is what PT uses.</div>
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$158578489$--><div><!--?lit$158578489$-->This is an approximate value that is dynamically created.</div>
+                                </div>
+                              </td>
+                            <!---->
+                        </tr>
+                      <!----><!---->
+                        <tr class="openTableTextBox__table-row ">
+                          <!--?lit$158578489$--><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$158578489$--><div><!--?lit$158578489$-->Destination Port</div>
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$158578489$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$158578489$--><!--?lit$158578489$-->Answer Area<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Type your answer here.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$158578489$--><div><!--?lit$158578489$-->N/A</div>
+                                </div>
+                              </td>
+                            <!---->
+                        </tr>
+                      <!----><!---->
+                        <tr class="openTableTextBox__table-row ">
+                          <!--?lit$158578489$--><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$158578489$--><div><!--?lit$158578489$-->Input Interface</div>
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$158578489$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$158578489$--><!--?lit$158578489$-->Answer Area<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Type your answer here.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$158578489$--><div><!--?lit$158578489$-->N/A</div>
+                                </div>
+                              </td>
+                            <!---->
+                        </tr>
+                      <!----><!---->
+                        <tr class="openTableTextBox__table-row ">
+                          <!--?lit$158578489$--><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$158578489$--><div><!--?lit$158578489$-->Output Interface</div>
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$158578489$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$158578489$--><!--?lit$158578489$-->Answer Area<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Type your answer here.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$158578489$--><div><!--?lit$158578489$-->N/A</div>
+                                </div>
+                              </td>
+                            <!---->
+                        </tr>
+                      <!---->
+                  </tbody>
+                </table>
+              </div>
+              <div class="openTableTextBox__answerText answergray openTableTextBox__table-container is-full hide">
+                <table class="opentabletextbox-table openTableTextBox__table-inner" tabindex="0">
+                  <!--?lit$158578489$-->
+                        <thead class="openTableTextBox__table-header">
+                          <tr tabindex="0">
+                            <!--?lit$158578489$--><!----><th scope="col"><!--?lit$158578489$-->Record Field</th><!----><!----><th scope="col"><!--?lit$158578489$-->Value</th><!----><!----><th scope="col"><!--?lit$158578489$-->Guidelines</th><!---->
+                          </tr>
+                        </thead>
+                        <tbody>
+                            <!--?lit$158578489$--><!---->
+                                <tr class="openTableTextBox__table-row ">
+                                  <!--?lit$158578489$--><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$158578489$-->Source IP address</div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$158578489$-->10.0.0.10</div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$158578489$-->N/A</div>
+                                        </div>
+                                      </td>
+                                    <!---->
+                                </tr>
+                              <!----><!---->
+                                <tr class="openTableTextBox__table-row ">
+                                  <!--?lit$158578489$--><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$158578489$-->Destination IP address</div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$158578489$-->192.0.2.100</div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$158578489$-->N/A</div>
+                                        </div>
+                                      </td>
+                                    <!---->
+                                </tr>
+                              <!----><!---->
+                                <tr class="openTableTextBox__table-row ">
+                                  <!--?lit$158578489$--><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$158578489$-->Source Port</div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$158578489$-->1025–5000 (MS Windows default, which is what PT uses.</div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$158578489$-->This is an approximate value that is dynamically created.</div>
+                                        </div>
+                                      </td>
+                                    <!---->
+                                </tr>
+                              <!----><!---->
+                                <tr class="openTableTextBox__table-row ">
+                                  <!--?lit$158578489$--><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$158578489$-->Destination Port</div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$158578489$-->80</div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$158578489$-->N/A</div>
+                                        </div>
+                                      </td>
+                                    <!---->
+                                </tr>
+                              <!----><!---->
+                                <tr class="openTableTextBox__table-row ">
+                                  <!--?lit$158578489$--><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$158578489$-->Input Interface</div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$158578489$-->Gig0/0</div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$158578489$-->N/A</div>
+                                        </div>
+                                      </td>
+                                    <!---->
+                                </tr>
+                              <!----><!---->
+                                <tr class="openTableTextBox__table-row ">
+                                  <!--?lit$158578489$--><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$158578489$-->Output Interface</div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$158578489$-->Se0/0/1</div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$158578489$-->N/A</div>
+                                        </div>
+                                      </td>
+                                    <!---->
+                                </tr>
+                              <!---->
+                      </tbody>
+                </table>
+              </div>
+              <div class="btn__container">
+                <button class="btn-text openTableTextBox__showButton show-answer show"><!--?lit$158578489$-->Show Answer</button>
+                <button class="btn-text openTableTextBox__showButton hide-answer hide"><!--?lit$158578489$-->Hide Answer</button>
+              </div>
+              <div class="openTableTextBox__postText">
+                <!--?lit$158578489$-->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </opentabletextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="dfcb4887-b390-42ef-a310-719e8b98de71" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme" sgpulse-type="block" style="width: 4.7619%;"><!---->
+                
+                <div data-socialgoodpulse-id="dfcb4887-b390-42ef-a310-719e8b98de71" class="dfcb4887-b390-42ef-a310-719e8b98de71 block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="dfcb4887-b390-42ef-a310-719e8b98de71" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+              <div class="block__header-inner ">
+                  
+                    <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$158578489$--><!----><text-view modelid="37f5b18e-9124-43c6-95cc-6bc75c632c22" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="37f5b18e-9124-43c6-95cc-6bc75c632c22" class="component text 37f5b18e-9124-43c6-95cc-6bc75c632c22  is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header text__header">
+              <div class="component__header-inner text__header-inner">
+                  
+                    <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$--> <div class="component__content">
+                      <div tabindex="0" class="component__body text__body">
+                        <div class="component__body-inner text__body-inner"><!--?lit$158578489$--><p>Predict the values for the web page reply entering the NetFlow exporter router from the internet.</p></div>
+                      </div>
+                    </div>
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="8382a2a7-2e55-44cb-98df-f697a180c1cc" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme" sgpulse-type="block" style="width: 4.7619%;"><!---->
+                
+                <div data-socialgoodpulse-id="8382a2a7-2e55-44cb-98df-f697a180c1cc" class="8382a2a7-2e55-44cb-98df-f697a180c1cc block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="8382a2a7-2e55-44cb-98df-f697a180c1cc" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+              <div class="block__header-inner ">
+                  
+                    <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$158578489$--><!----><opentabletextbox-view modelid="e80ec9db-d5dc-4c2a-8dce-ece2ccfd1d16" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme" sgpulse-type="component"><!---->
+      <div class="component">
+        <div class="opentabletextbox-inner component__inner">
+          <div data-socialgoodpulse-id="e80ec9db-d5dc-4c2a-8dce-ece2ccfd1d16" class="component opentabletextbox e80ec9db-d5dc-4c2a-8dce-ece2ccfd1d16  is-full   ">
+            <div class="component__header-container">
+              <div data-socialgoodpulse-id="e80ec9db-d5dc-4c2a-8dce-ece2ccfd1d16" class="opentabletextbox ">
+                <base-view type="component" lowercase_component="openTableTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTableTextBox__header">
+              <div class="component__header-inner openTableTextBox__header-inner">
+                  
+                    <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+              </div>
+            </div>
+            <div class="component__widget opentabletextBox__widget question-container ">
+              <div class="openTableTextBox__preText">
+                <!--?lit$158578489$-->
+              </div>
+              <div class="opentabletextbox-container openTableTextBox__table-container">
+                <table class="opentabletextbox-table" tabindex="0">
+                  <!--?lit$158578489$-->
+                        <thead class="openTableTextBox__table-header">
+                          <tr>
+                            <!--?lit$158578489$--><!----><th tabindex="0" scope="col"><!--?lit$158578489$-->Record Field</th><!----><!----><th tabindex="0" scope="col"><!--?lit$158578489$-->Value</th><!----><!----><th tabindex="0" scope="col"><!--?lit$158578489$-->Guidelines</th><!---->
+                          </tr>
+                        </thead>
+                  <tbody>
+                    <!--?lit$158578489$--><!---->
+                        <tr class="openTableTextBox__table-row ">
+                          <!--?lit$158578489$--><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$158578489$--><div><!--?lit$158578489$-->Source IP address</div>
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$158578489$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$158578489$--><!--?lit$158578489$-->Answer Area<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Type your answer here.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$158578489$--><div><!--?lit$158578489$-->N/A</div>
+                                </div>
+                              </td>
+                            <!---->
+                        </tr>
+                      <!----><!---->
+                        <tr class="openTableTextBox__table-row ">
+                          <!--?lit$158578489$--><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$158578489$--><div><!--?lit$158578489$-->Destination IP address</div>
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$158578489$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$158578489$--><!--?lit$158578489$-->Answer Area<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Type your answer here.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$158578489$--><div><!--?lit$158578489$-->N/A</div>
+                                </div>
+                              </td>
+                            <!---->
+                        </tr>
+                      <!----><!---->
+                        <tr class="openTableTextBox__table-row ">
+                          <!--?lit$158578489$--><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$158578489$--><div><!--?lit$158578489$-->Source Port</div>
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$158578489$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$158578489$--><!--?lit$158578489$-->Answer Area<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Type your answer here.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$158578489$--><div><!--?lit$158578489$-->N/A</div>
+                                </div>
+                              </td>
+                            <!---->
+                        </tr>
+                      <!----><!---->
+                        <tr class="openTableTextBox__table-row ">
+                          <!--?lit$158578489$--><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$158578489$--><div><!--?lit$158578489$-->Destination Port</div>
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$158578489$--><div><!--?lit$158578489$-->1025-5000</div>
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$158578489$--><div><!--?lit$158578489$-->This is whatever value was randomly assigned form the  ephemeral port range.</div>
+                                </div>
+                              </td>
+                            <!---->
+                        </tr>
+                      <!----><!---->
+                        <tr class="openTableTextBox__table-row ">
+                          <!--?lit$158578489$--><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$158578489$--><div><!--?lit$158578489$-->Input Interface</div>
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$158578489$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$158578489$--><!--?lit$158578489$-->Answer Area<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Type your answer here.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$158578489$--><div><!--?lit$158578489$-->N/A</div>
+                                </div>
+                              </td>
+                            <!---->
+                        </tr>
+                      <!----><!---->
+                        <tr class="openTableTextBox__table-row ">
+                          <!--?lit$158578489$--><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$158578489$--><div><!--?lit$158578489$-->Output Interface</div>
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$158578489$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$158578489$--><!--?lit$158578489$-->Answer Area<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Type your answer here.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$158578489$--><div><!--?lit$158578489$-->N/A</div>
+                                </div>
+                              </td>
+                            <!---->
+                        </tr>
+                      <!---->
+                  </tbody>
+                </table>
+              </div>
+              <div class="openTableTextBox__answerText answergray openTableTextBox__table-container is-full hide">
+                <table class="opentabletextbox-table openTableTextBox__table-inner" tabindex="0">
+                  <!--?lit$158578489$-->
+                        <thead class="openTableTextBox__table-header">
+                          <tr tabindex="0">
+                            <!--?lit$158578489$--><!----><th scope="col"><!--?lit$158578489$-->Record Field</th><!----><!----><th scope="col"><!--?lit$158578489$-->Value</th><!----><!----><th scope="col"><!--?lit$158578489$-->Guidelines</th><!---->
+                          </tr>
+                        </thead>
+                        <tbody>
+                            <!--?lit$158578489$--><!---->
+                                <tr class="openTableTextBox__table-row ">
+                                  <!--?lit$158578489$--><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$158578489$-->Source IP address</div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$158578489$-->192.0.2.100</div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$158578489$-->N/A</div>
+                                        </div>
+                                      </td>
+                                    <!---->
+                                </tr>
+                              <!----><!---->
+                                <tr class="openTableTextBox__table-row ">
+                                  <!--?lit$158578489$--><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$158578489$-->Destination IP address</div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$158578489$-->10.0.0.10</div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$158578489$-->N/A</div>
+                                        </div>
+                                      </td>
+                                    <!---->
+                                </tr>
+                              <!----><!---->
+                                <tr class="openTableTextBox__table-row ">
+                                  <!--?lit$158578489$--><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$158578489$-->Source Port</div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$158578489$-->80</div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$158578489$-->N/A</div>
+                                        </div>
+                                      </td>
+                                    <!---->
+                                </tr>
+                              <!----><!---->
+                                <tr class="openTableTextBox__table-row ">
+                                  <!--?lit$158578489$--><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$158578489$-->Destination Port</div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$158578489$-->1025-5000</div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$158578489$-->This is whatever value was randomly assigned form the  ephemeral port range.</div>
+                                        </div>
+                                      </td>
+                                    <!---->
+                                </tr>
+                              <!----><!---->
+                                <tr class="openTableTextBox__table-row ">
+                                  <!--?lit$158578489$--><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$158578489$-->Input Interface</div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$158578489$-->Se0/0/1</div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$158578489$-->N/A</div>
+                                        </div>
+                                      </td>
+                                    <!---->
+                                </tr>
+                              <!----><!---->
+                                <tr class="openTableTextBox__table-row ">
+                                  <!--?lit$158578489$--><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$158578489$-->Output Interface</div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$158578489$-->Gig0/0</div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$158578489$-->N/A</div>
+                                        </div>
+                                      </td>
+                                    <!---->
+                                </tr>
+                              <!---->
+                      </tbody>
+                </table>
+              </div>
+              <div class="btn__container">
+                <button class="btn-text openTableTextBox__showButton show-answer show"><!--?lit$158578489$-->Show Answer</button>
+                <button class="btn-text openTableTextBox__showButton hide-answer hide"><!--?lit$158578489$-->Hide Answer</button>
+              </div>
+              <div class="openTableTextBox__postText">
+                <!--?lit$158578489$-->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </opentabletextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="fc2b05db-1d2d-4b1a-9ca7-14dfb53aab77" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme" sgpulse-type="block" style="width: 4.7619%;"><!---->
+                
+                <div data-socialgoodpulse-id="fc2b05db-1d2d-4b1a-9ca7-14dfb53aab77" class="fc2b05db-1d2d-4b1a-9ca7-14dfb53aab77 block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="fc2b05db-1d2d-4b1a-9ca7-14dfb53aab77" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+              <div class="block__header-inner ">
+                  
+                    <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$158578489$--><!----><text-view modelid="7b91e2ae-ab63-4e45-97b7-88ce7a67ba65" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="7b91e2ae-ab63-4e45-97b7-88ce7a67ba65" class="component text 7b91e2ae-ab63-4e45-97b7-88ce7a67ba65  is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header text__header">
+              <div class="component__header-inner text__header-inner">
+                  
+                    <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$--> <div class="component__content">
+                      <div tabindex="0" class="component__body text__body">
+                        <div class="component__body-inner text__body-inner"><!--?lit$158578489$--><h4 class="pageTracer-h4-title-hide">Question:</h4> <p class="SubStepAlpha"><span>f.</span><span>&nbsp;&nbsp;</span>Click <b>PC-1 &gt; Desktop</b>. Close the Command Prompt window, if necessary. Click the Web Browser icon.</p> <p class="SubStepAlpha"><span>g.</span><span>&nbsp;&nbsp;</span>In the Web Browser for PC-1, enter 192.0.2.100 and click <b>Go</b>. The Example Website webpage will display.</p> <p class="SubStepAlpha"><span>h.</span><span>&nbsp;&nbsp;</span>After a short delay, a new pie chart will appear in the NetFlow collector. You will see at least two pie segments for the HTTP request and response. You might see a third segment if the ARP cache for PC-1 timed out.</p> <p class="SubStepAlpha"><span>i.</span><span>&nbsp;&nbsp;&nbsp;</span>Click each HTTP pie segment to display the record and verify your predictions.</p> <p class="SubStepAlpha"><span>j.</span><span>&nbsp;&nbsp;</span>Click the link to the Copyrights page.</p></div>
+                      </div>
+                    </div>
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="44459b72-de0e-49b6-b527-289199c1f3ed" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme" sgpulse-type="block" style="width: 4.7619%;"><!---->
+                
+                <div data-socialgoodpulse-id="44459b72-de0e-49b6-b527-289199c1f3ed" class="44459b72-de0e-49b6-b527-289199c1f3ed block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="44459b72-de0e-49b6-b527-289199c1f3ed" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+              <div class="block__header-inner ">
+                  
+                    <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$158578489$--><!----><opentextbox-view modelid="75bca829-dc46-4c7c-8d0e-43b1ae856f66" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="75bca829-dc46-4c7c-8d0e-43b1ae856f66" class="component opentextbox 75bca829-dc46-4c7c-8d0e-43b1ae856f66  is-undefined   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="75bca829-dc46-4c7c-8d0e-43b1ae856f66" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+              <div class="component__header-inner openTextBox__header-inner">
+                  
+                    <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$158578489$--> <div class="openTextBox__preText"><!--?lit$158578489$--><p class="BodyTextL25">What happened? Explain. (Hint: compare the port number on the host for the flows.)</p></div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$158578489$--><!--?lit$158578489$-->Answer Area<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Type your answer here." aria-label="Type your answer here.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$158578489$-->
+                      <!--?lit$158578489$--><p>Because the host opened a new source port for the new request to the web server, two new flows were created.</p>
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$158578489$-->Show Answer</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$158578489$-->Hide Answer</button>                    
+                      </div>
+                      <!--?lit$158578489$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="a58347fa-c8a7-4f85-a680-3ca21e659e9d" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme" sgpulse-type="block" style="width: 4.7619%;"><!---->
+                
+                <div data-socialgoodpulse-id="a58347fa-c8a7-4f85-a680-3ca21e659e9d" class="a58347fa-c8a7-4f85-a680-3ca21e659e9d block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="a58347fa-c8a7-4f85-a680-3ca21e659e9d" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+              <div class="block__header-inner ">
+                  
+                    <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$158578489$--><!----><opentextbox-view modelid="c31e0a9a-8377-4cd8-bac4-b5a73afe5032" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="c31e0a9a-8377-4cd8-bac4-b5a73afe5032" class="component opentextbox c31e0a9a-8377-4cd8-bac4-b5a73afe5032  is-undefined   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="c31e0a9a-8377-4cd8-bac4-b5a73afe5032" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+              <div class="component__header-inner openTextBox__header-inner">
+                  
+                    <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$158578489$--> <div class="openTextBox__preText"><!--?lit$158578489$--><p class="BodyTextL25">Compare the flows. Aside from the obvious timestamp, source and destination IP address, port, and interfaces, differences, what else is different between the request and response flows?</p></div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$158578489$--><!--?lit$158578489$-->Answer Area<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Type your answer here." aria-label="Type your answer here.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$158578489$-->
+                      <!--?lit$158578489$--><p>The TCP flags are different. The flags for the request flows are 0x02 and the response flags are 0x12. Direct the students to look up these values by doing a Google search on terms like “tcp flag values”. It is beyond the scope of this lab to explain how the values are determined, but the meaning of 0x02 will be SYN (decimal 2) for the request flow, and will be SYN-ACK (decimal 18) for the reply flows.</p>
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$158578489$-->Show Answer</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$158578489$-->Hide Answer</button>                    
+                      </div>
+                      <!--?lit$158578489$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="011dfd84-e0be-4f7c-8a52-368e202073ca" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme" sgpulse-type="block" style="width: 4.7619%;"><!---->
+                
+                <div data-socialgoodpulse-id="011dfd84-e0be-4f7c-8a52-368e202073ca" class="011dfd84-e0be-4f7c-8a52-368e202073ca block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="011dfd84-e0be-4f7c-8a52-368e202073ca" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+              <div class="block__header-inner ">
+                  
+                    <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$158578489$--><!----><text-view modelid="513d5129-82f6-476d-8e7c-831cc3d86309" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="513d5129-82f6-476d-8e7c-831cc3d86309" class="component text 513d5129-82f6-476d-8e7c-831cc3d86309  is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header text__header">
+              <div class="component__header-inner text__header-inner">
+                  
+                    <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$--> <div class="component__content">
+                      <div tabindex="0" class="component__body text__body">
+                        <div class="component__body-inner text__body-inner"><!--?lit$158578489$--><h3>Step 2: Access the Web Server by URL.</h3> <p class="SubStepAlpha"><span>a.</span><span>&nbsp;&nbsp;</span>Power cycle the NetFlow Collector to clear the flows.</p> <p class="SubStepAlpha"><span>b.</span><span>&nbsp;&nbsp;</span>Turn on the Netflow Collector service.</p> <p class="SubStepAlpha"><span>c.</span><span>&nbsp;&nbsp;</span>Before you access the Web Server by its URL.</p></div>
+                      </div>
+                    </div>
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="942802ed-d192-437e-b09e-5bd4bbb937c6" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme" sgpulse-type="block" style="width: 4.7619%;"><!---->
+                
+                <div data-socialgoodpulse-id="942802ed-d192-437e-b09e-5bd4bbb937c6" class="942802ed-d192-437e-b09e-5bd4bbb937c6 block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="942802ed-d192-437e-b09e-5bd4bbb937c6" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+              <div class="block__header-inner ">
+                  
+                    <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$158578489$--><!----><opentextbox-view modelid="e39c10af-4772-415c-9cd4-30e121e1867c" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="e39c10af-4772-415c-9cd4-30e121e1867c" class="component opentextbox e39c10af-4772-415c-9cd4-30e121e1867c  is-undefined   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="e39c10af-4772-415c-9cd4-30e121e1867c" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+              <div class="component__header-inner openTextBox__header-inner">
+                  
+                    <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$158578489$--> <div class="openTextBox__preText"><!--?lit$158578489$--><p class="BodyTextL25">What do you think you will see in the NetFlow collector display?</p></div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$158578489$--><!--?lit$158578489$-->Answer Area<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Type your answer here." aria-label="Type your answer here.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$158578489$-->
+                      <!--?lit$158578489$--><p class="BodyTextL50Answer"><span class="AnswerGray"><span style=" border:none"><span style="border:none">You will see four flows. Because the website is accessed by URL, a DNS query must occur. Two flows represent the DNS query and response. The other two flows represent the HTTP request and response.</span></span></span></p>
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$158578489$-->Show Answer</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$158578489$-->Hide Answer</button>                    
+                      </div>
+                      <!--?lit$158578489$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="b0258afc-a5fd-43a6-902a-7d267c49fa62" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme" sgpulse-type="block" style="width: 4.7619%;"><!---->
+                
+                <div data-socialgoodpulse-id="b0258afc-a5fd-43a6-902a-7d267c49fa62" class="b0258afc-a5fd-43a6-902a-7d267c49fa62 block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="b0258afc-a5fd-43a6-902a-7d267c49fa62" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+              <div class="block__header-inner ">
+                  
+                    <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$158578489$--><!----><text-view modelid="cb2bdd13-13ac-4350-a15b-f20ccaa68c53" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="cb2bdd13-13ac-4350-a15b-f20ccaa68c53" class="component text cb2bdd13-13ac-4350-a15b-f20ccaa68c53  is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header text__header">
+              <div class="component__header-inner text__header-inner">
+                  
+                    <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$--> <div class="component__content">
+                      <div tabindex="0" class="component__body text__body">
+                        <div class="component__body-inner text__body-inner"><!--?lit$158578489$--><h4 class="pageTracer-h4-title-hide">Question:</h4> <p>On PC-1, enter <b>www.example.com</b> in the URL field and press <b>Go</b>.</p> <p class="SubStepAlpha"><span>e.</span><span>&nbsp;&nbsp;</span>After the flows are displayed, inspect each flow record.</p></div>
+                      </div>
+                    </div>
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="d0f1a4b2-9c33-4d46-a529-c0c2fb56f092" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme" sgpulse-type="block" style="width: 4.7619%;"><!---->
+                
+                <div data-socialgoodpulse-id="d0f1a4b2-9c33-4d46-a529-c0c2fb56f092" class="d0f1a4b2-9c33-4d46-a529-c0c2fb56f092 block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="d0f1a4b2-9c33-4d46-a529-c0c2fb56f092" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+              <div class="block__header-inner ">
+                  
+                    <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$158578489$--><!----><opentextbox-view modelid="fb977ab8-e138-4da1-add3-bcddc64e5bf5" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="fb977ab8-e138-4da1-add3-bcddc64e5bf5" class="component opentextbox fb977ab8-e138-4da1-add3-bcddc64e5bf5  is-undefined   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="fb977ab8-e138-4da1-add3-bcddc64e5bf5" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+              <div class="component__header-inner openTextBox__header-inner">
+                  
+                    <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$158578489$--> <div class="openTextBox__preText"><!--?lit$158578489$--><p class="BodyTextL25">What values do you see for the IP protocol field of the flow record? What do these values mean?</p></div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$158578489$--><!--?lit$158578489$-->Answer Area<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Type your answer here." aria-label="Type your answer here.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$158578489$-->
+                      <!--?lit$158578489$--><p class="BodyTextL50Answer"><span class="AnswerGray"><span style=" border:none"><span style="border:none">The IP protocol fields were discussed in the table in Part 1, Step 1 of this lab. The value 6 is for TCP and is used for the HTTP traffic on TCP port 80. The value 17 is for UDP traffic and is used by the DNS query and response flows.</span></span></span></p>
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$158578489$-->Show Answer</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$158578489$-->Hide Answer</button>                    
+                      </div>
+                      <!--?lit$158578489$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!---->
+                            </div>
+                        </div>
+                        <!--?lit$158578489$-->
+                    </div>
+                </div>
+            </div>
+        <sgpluse-opentextboxcontroller-view modelid="" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme"><!---->
+            <div class="openTextBoxController__button-container">
+                <button tabindex="0" class="btn-text showhidebtn openTextBoxController__showButton show-answer show"><!--?lit$158578489$-->Show All Answers</button>    
+                <button tabindex="0" class="btn-text showhidebtn openTextBoxController__hideButton hide-answer hide"><!--?lit$158578489$-->Hide All Answers</button>    
+                <button class="btn-text resetbtn openTextBoxController__resetButton"><!--?lit$158578489$-->Clear My Responses</button>         
+            </div>
+            <!--?lit$158578489$--><hr>
+            <!--?lit$158578489$-->
+                <div class="post-text" tabindex="0">
+                    <!--?lit$158578489$--><span> <span style=" padding-right: 5px; float: left; font-family: arial; font-size: 12px; ">© 2017 - 2022 Cisco and/or its affiliates. All rights reserved. Cisco Public</span> </span>
+                </div>
+                   
+        </sgpluse-opentextboxcontroller-view><script></script>
+<script>
+    window.addEventListener("load", function () {
+      console.log("loaded");
+      document?.querySelectorAll(".answergray").forEach(function (ele) {
+        ele.classList.add("u-display-none");
+      });
+      document?.querySelectorAll(".hide-answer").forEach(function (ele) {
+        ele.classList.add("u-display-none");
+      });
+      document?.querySelectorAll(".show-answer").forEach(function (ele) {
+        ele.addEventListener("click", function (e) {
+          e.currentTarget.nextElementSibling.classList.remove("u-display-none");
+          e.currentTarget
+            .closest(".question-container")
+            ?.querySelectorAll(".answergray")
+            .forEach(function (ele) {
+              ele.classList.remove("u-display-none");
+            });
+          ele.classList.add("u-display-none");
+        });
+      });
+      document?.querySelectorAll(".hide-answer").forEach(function (ele) {
+        ele.addEventListener("click", function (e) {
+          e.currentTarget.previousElementSibling.classList.remove("u-display-none");
+          e.currentTarget
+            .closest(".question-container")
+            ?.querySelectorAll(".answergray")
+            .forEach(function (ele) {
+              ele.classList.add("u-display-none");
+            });
+          ele.classList.add("u-display-none");
+        });
+      });
+      let event = new Event("click", {
+        bubbles: true,
+        cancelable: true,
+      });
+      document
+        ?.querySelectorAll(".openTextBoxController__showButton")
+        .forEach(function (ele) {
+          ele.addEventListener("click", function (e) {
+            e.currentTarget.nextElementSibling.classList.remove("u-display-none");
+            ele.classList.add("u-display-none");
+            document?.querySelectorAll(".show-answer").forEach(function (ele) {
+              ele?.dispatchEvent(event);
+            });
+          });
+        });
+
+      document
+        ?.querySelectorAll(".openTextBoxController__hideButton")
+        .forEach(function (ele) {
+          ele.addEventListener("click", function (e) {
+            e.currentTarget.previousElementSibling.classList.remove("u-display-none");
+            ele.classList.add("u-display-none");
+            document?.querySelectorAll(".hide-answer").forEach(function (ele) {
+              ele?.dispatchEvent(event);
+            });
+          });
+        });
+
+      document
+        ?.querySelectorAll(".openTextBoxController__resetButton")
+        .forEach(function (ele) {
+          ele.addEventListener("click", function (e) {
+            document?.querySelectorAll("textArea").forEach(function (ele) {
+              ele.value = "";
+            });
+          });
+        });
+
+      document
+      ?.querySelectorAll('textarea')
+      .forEach(function (ele){
+        ele.defaultValue = ele.defaultValue.replace(/<!--.*?-->/g, '');
+      })
+        let checkButtonLabel = "check_button_label_placeHolder";
+        let hideButtonLabel = "hide_button_label_placeHolder";
+        document?.querySelectorAll(".check__button").forEach(function (ele) {
+        let answerBox = document.querySelector(".check__solution")
+        if (!answerBox.classList.contains("check__hidden")) {
+          answerBox.classList.add("check__hidden");
+          ele.innerText = checkButtonLabel;
+        }
+          ele.addEventListener("click", function (e) {
+            if (answerBox.classList.contains("check__hidden")) {
+              answerBox.classList.remove("check__hidden")
+              ele.innerText = hideButtonLabel;
+            } else {
+              answerBox.classList.add("check__hidden")
+              ele.innerText = checkButtonLabel;
+            }
+          })
+        })
+    });
+  </script>
+  </body></html>

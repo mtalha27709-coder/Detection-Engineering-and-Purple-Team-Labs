@@ -1,0 +1,942 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8">
+<style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 1rem;
+      }
+      ol,
+      ul {
+        margin-bottom: 0in;
+      }
+      table {
+        margin-top: 1rem;
+        border: 1px solid gray;
+        width: 7in;
+        border-collapse: collapse;
+      }
+
+      table > thead > tr > .openTableTextBox__table-header-data {
+        text-align: center;
+        margin-top: 6pt;
+        margin-right: 0in;
+        margin-bottom: 6pt;
+        margin-left: 0in;
+        text-align: center;
+        line-height: 115%;
+        page-break-after: avoid;
+        font-size: 10pt;
+        font-family: "Arial", sans-serif;
+        font-weight: bold;
+        background: #dbe5f1;
+        padding: 0.5rem;
+      }
+      .openTableTextBox__answerText
+        table
+        > thead
+        > tr
+        > .openTableTextBox__table-header-data {
+        background: #f2dbdb !important;
+      }
+      .openTextBox__textArea-container {
+        margin-top: 6pt;
+        margin-right: 0in;
+        margin-bottom: 6pt;
+        font-size: 10pt;
+        font-family: "Arial", sans-serif;
+        width: 50%;
+      }
+      .openTableTextBox__fieldset {
+        padding: 5px;
+      }
+      td {
+        margin-top: 3pt;
+        margin-right: 0in;
+        margin-bottom: 3pt;
+        margin-left: 0in;
+        font-size: 10pt;
+        font-family: "Arial", sans-serif;
+        width: 98.85pt;
+        border: solid windowtext 1pt;
+        border-top: none;
+        padding: 0.7pt 5.75pt 0.7pt 5.75pt;
+      }
+      textarea {
+        width: 100%;
+      }
+      .answergray {
+        padding: 0.2rem;
+      }
+
+      .openTableTextBox__widget {
+        margin-top: 6pt;
+        margin-right: 0in;
+        margin-bottom: 6pt;
+        margin-left: 0.25in;
+      }
+
+      .show-answer,
+      .hide-answer {
+        padding: 0.5rem 1rem;
+        background-color: #3d692b;
+        color: #fff;
+        border: 0px;
+        cursor: pointer;
+        margin-bottom: 0.5rem;
+        margin-top: 0.5rem;
+      }
+
+      .openTextBoxController__button-container {
+        display: flex;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .openTextBoxController__button-container .btn-text {
+        margin: 10px;
+      }
+
+      .btn-text {
+        border: 0px;
+        padding: 0.5rem 1rem;
+        background-color: #3d692b;
+        color: #fff;
+        border-radius: 0;
+        cursor: pointer;
+      }
+
+      .u-display-none {
+        display: none;
+      }
+      .openTextBox__postText, openTableTextBox__postText {
+        margin-top: 0.5rem;
+      }
+      .edit-comment {
+        display: none;
+      }
+      .js-heading-inner {
+        display: none;
+      }
+      .block__title-inner,
+      .article__title-inner {
+        display: block;
+        font-size: 1.5em;
+        margin-block-start: 0.83em;
+        margin-block-end: 0.83em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        font-weight: bold;
+      }
+      h2{
+        font-size: 1.25em;
+      }
+      h3{
+        font-size: 1.125em;
+      }
+      .table
+        > .table-inner
+        > .table-wrapper
+        > .table-widget
+        > table
+        > tbody
+        > tr
+        > th {
+        border: solid windowtext 1pt;
+      }
+      table tbody tr th, table thead tr th{
+        border: solid windowtext 1pt;
+        background-color: #d6d8dc;
+      }
+      .openTableTextBox__answerText
+        table
+        > thead
+        > tr
+        > .openTableTextBox__table-header-data {
+        background: #f2dbdb !important;
+      }
+      .command-output > .table-inner > .table-wrapper > .table-widget > table,
+      .command-output
+        > .table-inner
+        > .table-wrapper
+        > .table-widget
+        > table
+        > tbody
+        > tr
+        > td,
+      .command-output
+        > .table-inner
+        > .table-wrapper
+        > .table-widget
+        > table
+        > tbody
+        > tr
+        > th {
+        border: none !important;
+        text-align: right !important;
+      }
+      .simple-table > .table-inner > .table-wrapper{
+        margin-left: 1.5rem;
+      }
+      .openTextBox__widget {
+        margin-left: 1.5rem;
+      }
+      img {
+        width: 30%;
+        height: auto;
+        margin-top: 1rem;
+        margin-left: 3rem;
+      }
+      .answergray {
+        background-color: #ccc;
+      }
+      .openTableTextBox__widget > .answergray {
+        background-color: #fff !important;
+      }
+      li > ul,ol > li{
+        margin-left: 0px !important;
+      }
+      img {
+        width: 30%;
+        height: auto;
+        margin-top: 1rem;
+        margin-left: 3rem;
+      }
+      
+      .component__title{
+        font-family: inherit;
+        font-size: 1.65em;
+        font-weight: 600;
+        line-height: 1.5;
+      }
+
+      .component__body {
+        padding-top: 20px;
+        padding-bottom: 20px;
+      }
+
+      .accessibility-completion-indicator{
+        display: none;
+      }
+
+      .check__hidden {
+        display: none;
+      }
+
+      .check__button {
+        border: none;
+        border-radius: 6px !important;
+        background-color: #6abf4b;
+        color: #fff;
+        min-width: 100px;
+        margin: 0.625rem 0;
+        padding: 0.7rem;
+      }
+
+      .check__widget .check__solution .DevConfigGray {
+        background-color: rgb(214,216,220);
+        font-weight: bold;
+      }
+
+      .check-inner .check__widget .check__solution .DevConfigs {
+        margin: 0px;
+        line-height: 115%;
+        font-family: "Courier New", Courier, monospace;
+      }
+
+      .check__solution  {
+        line-height: 1.5;
+      }
+      .mcq__inner .mcq__widget .mcq__widget-inner {
+        margin-block: 1rem;
+      }
+      .mcq__inner .mcq__widget .mcq__item {
+        display: flex;
+        gap: 0.2rem;
+      }
+      .mcq__inner .mcq__widget .mcq__item .mcq__item-label .mcq__item-text .screenReader-position-text{
+        display: none;
+      }
+      .opentabletextbox-inner .opentabletextBox__widget .openTableTextBox__answerText.answergray {
+        background-color: transparent;
+      }
+      .openTextBox__inner .openTextBox__widget .answergray.is-graphic-in-openTextBox{
+        background-color: transparent;
+      }
+      .openTextBox__inner .openTextBox__widget .answergray.is-graphic-in-openTextBox img{
+        margin-block: 1rem;
+        margin-left: initial;
+      }
+      .component__content .component__body-inner .pageTracer-h4-title-hide {
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+        font-size: 0px;
+        color: rgb(var(--neutral-2));
+        font-weight: normal;
+      }
+      .table-inner .table__widget table tr.TableHeading th, .table-inner .table__widget table tr.TableHeading td, .table-inner .table__widget table tr td.TableHeading, .opentabletextbox-table thead tr.TableHeading th, .opentabletextbox-table tbody tr.TableHeading td, .opentabletextbox-table tbody tr td.TableHeading {
+        background-color: #d6d8dc;
+        text-align: center;
+        font-weight: bold;
+      }
+      .component__content .component__body-inner .CMD, .component__content .component__body-inner .CMDOutput, .component__content .component__body-inner .CMDOutput__table{
+        margin-top: 4px;
+        margin-inline-end: 0px;
+        margin-bottom: 4px;
+        margin-inline-start: 30px;
+        font-family: "Courier New", Courier, monospace;
+      }
+      [dir="rtl"] .component__content .component__body-inner .CMDOutput__table span {
+        direction: ltr;
+        display: inline-block;
+      }
+      .openTextBox__inner .openTextBox__widget .CMD, .openTextBox__inner .openTextBox__widget .CMDOutput{
+        margin-top: 4px;
+        margin-inline-end: 0px;
+        margin-bottom: 4px;
+        font-family: "Courier New", Courier, monospace;
+      }
+      .openTextBox__inner .openTextBox__widget .DnTbold, .openTextBox__inner .openTextBox__widget .BodyTextL25Bold, .component__content .component__body-inner .BodyTextL25Bold, .component__content .component__body-inner .DnTbold, .table-inner .table__widget table tr .DnTbold {
+        font-weight: bold;
+      }
+      .component__content .component__body-inner .SubStepNum {
+        text-indent: -25.5px;
+        margin-inline-start: 50px;
+      }
+      .component__content .component__body-inner .BodyTextL50 {
+        margin-inline-start: 30px;
+      }
+      .component__content .component__body-inner .Bulletlevel1 {
+        text-indent: -19px;
+        margin-inline-start: 48px;
+      }
+      .component__content .component__body-inner .Bulletlevel2 {
+          text-indent: -19px;
+          margin-inline-start: 72px;
+      }
+      .openTextBox__inner .openTextBox__widget .ReflectionQ, .component__content .component__body-inner .SubStepAlpha {
+          text-indent: -25.5px;
+          margin-inline-start: 30px;
+      }
+    </style>
+
+</head><body><!---->
+            <div class="article 36ead179-f247-4eb8-9fb7-b81d2b30cd61 remove-padding-top remove-padding-bottom ">
+                <div class="article__inner">
+                <div class=" no-adaptive-scroll">
+                    <!--?lit$400367749$-->
+                        <div class=""> 
+                            <base-view type="article" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="article__header-wrapper remove-padding-top remove-padding-bottom ">
+        <div class="article__header ">
+              <div class="article__header-inner ">
+                  
+                    <!--?lit$400367749$--> <div class=" article__title ">
+                      <!--?lit$400367749$--><heading-view aria-hidden="true" id="36ead179-f247-4eb8-9fb7-b81d2b30cd61-heading-view" headingtitle="Packet Tracer - Configure Extended ACLs Scenario 1" modelid="36ead179-f247-4eb8-9fb7-b81d2b30cd61" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="js-heading is-incomplete">
+        <div class="js-heading-inner" role="heading" id="article-heading" aria-level="2">
+        <span class="aria-label"> <!--?lit$400367749$-->Incomplete &nbsp;<!--?lit$400367749$-->Packet Tracer - Configure Extended ACLs Scenario 1</span>
+        </div>
+      </div>
+    </heading-view>
+                        <div tabindex="0" role="heading" class="article__title-inner " aria-level="2">
+                        <span class="accessibility-completion-indicator"><!--?lit$400367749$-->Incomplete </span>
+                        <!--?lit$400367749$-->Packet Tracer - Configure Extended ACLs Scenario 1</div>
+                      </div>
+                  <!--?lit$400367749$-->
+                  <!--?lit$400367749$-->
+                  <!--?lit$400367749$-->
+                  <!--?lit$400367749$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                            <div class="block__container " style="">
+                                <!--?lit$400367749$--><!---->
+                                    <block-view modelid="f7bba730-4f2d-4abe-b044-eb0376b86235" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme" sgpulse-type="block" style="width: 20%;"><!---->
+                
+                <div data-socialgoodpulse-id="f7bba730-4f2d-4abe-b044-eb0376b86235" class="f7bba730-4f2d-4abe-b044-eb0376b86235 block  is-complete">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="f7bba730-4f2d-4abe-b044-eb0376b86235" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+              <div class="block__header-inner ">
+                  
+                    <!--?lit$400367749$-->
+                  <!--?lit$400367749$-->
+                  <!--?lit$400367749$-->
+                  <!--?lit$400367749$-->
+                  <!--?lit$400367749$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$400367749$--><!----><text-view modelid="0660fded-2d7a-41b2-ac17-c580fb143057" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="0660fded-2d7a-41b2-ac17-c580fb143057" class="component text 0660fded-2d7a-41b2-ac17-c580fb143057  is-full is-complete  ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header text__header">
+              <div class="component__header-inner text__header-inner">
+                  
+                    <!--?lit$400367749$-->
+                  <!--?lit$400367749$-->
+                  <!--?lit$400367749$--> <div class="component__content">
+                      <div tabindex="0" class="component__body text__body">
+                        <div class="component__body-inner text__body-inner"><!--?lit$400367749$--><h2>Addressing Table</h2></div>
+                      </div>
+                    </div>
+                  <!--?lit$400367749$-->
+                  <!--?lit$400367749$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="18dcfef0-82be-4d2f-8ab8-5b7261a56f7d" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme" sgpulse-type="block" style="width: 20%;"><!---->
+                
+                <div data-socialgoodpulse-id="18dcfef0-82be-4d2f-8ab8-5b7261a56f7d" class="18dcfef0-82be-4d2f-8ab8-5b7261a56f7d block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="18dcfef0-82be-4d2f-8ab8-5b7261a56f7d" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+              <div class="block__header-inner ">
+                  
+                    <!--?lit$400367749$-->
+                  <!--?lit$400367749$-->
+                  <!--?lit$400367749$-->
+                  <!--?lit$400367749$-->
+                  <!--?lit$400367749$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$400367749$--><!----><table-view modelid="add5f58f-d514-4b4d-b170-2453740dd1a9" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+        <div class="table-inner component__inner"> 
+            <div data-socialgoodpulse-id="add5f58f-d514-4b4d-b170-2453740dd1a9" class="component table add5f58f-d514-4b4d-b170-2453740dd1a9  is-full   ">
+                <div class="component__header-container">
+                    <div data-socialgoodpulse-id="add5f58f-d514-4b4d-b170-2453740dd1a9" class="table ">
+                        <base-view type="component" lowercase_component="table" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header table__header">
+              <div class="component__header-inner table__header-inner">
+                  
+                    <!--?lit$400367749$-->
+                  <!--?lit$400367749$-->
+                  <!--?lit$400367749$-->
+                  <!--?lit$400367749$-->
+                  <!--?lit$400367749$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                    </div>
+                </div>
+
+
+                <div class="component__widget table__widget">
+
+                <table tabindex="0" style="min-width: 800px">
+                <!--?lit$400367749$--><!---->
+                    <tbody><tr class="table-row nth-child-0 TableHeading">
+                    <!--?lit$400367749$--><!---->
+                                <th scope="col" tabindex="0" rowspan="1" colspan="1" class="table-data table-heading nth-child-0 ">
+                                   <!--?lit$400367749$--><p>Device</p>
+                                    <!--?lit$400367749$-->
+                                </th>
+                                <!----><!---->
+                                <th scope="col" tabindex="0" rowspan="1" colspan="1" class="table-data table-heading nth-child-1 ">
+                                   <!--?lit$400367749$--><p>Interface</p>
+                                    <!--?lit$400367749$-->
+                                </th>
+                                <!----><!---->
+                                <th scope="col" tabindex="0" rowspan="1" colspan="1" class="table-data table-heading nth-child-2 ">
+                                   <!--?lit$400367749$--><p>IP Address</p>
+                                    <!--?lit$400367749$-->
+                                </th>
+                                <!----><!---->
+                                <th scope="col" tabindex="0" rowspan="1" colspan="1" class="table-data table-heading nth-child-3 ">
+                                   <!--?lit$400367749$--><p>Subnet Mask</p>
+                                    <!--?lit$400367749$-->
+                                </th>
+                                <!----><!---->
+                                <th scope="col" tabindex="0" rowspan="1" colspan="1" class="table-data table-heading nth-child-4 ">
+                                   <!--?lit$400367749$--><p>Default Gateway</p>
+                                    <!--?lit$400367749$-->
+                                </th>
+                                <!---->
+                   </tr>  
+                    <!----><!---->
+                    <tr class="table-row nth-child-1 ">
+                    <!--?lit$400367749$--><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-0 " width="200">
+                                <!--?lit$400367749$--><p class="TableText"><span class="DnTnobold">R1</span></p>
+                                 <!--?lit$400367749$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-1 " width="">
+                                <!--?lit$400367749$--><p class="TableText">G0/0</p>
+                                 <!--?lit$400367749$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-2 " width="">
+                                <!--?lit$400367749$--><p class="TableText">172.22.34.65</p>
+                                 <!--?lit$400367749$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-3 " width="">
+                                <!--?lit$400367749$--><p class="TableText">255.255.255.224</p>
+                                 <!--?lit$400367749$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-4 " width="">
+                                <!--?lit$400367749$--><p class="TableText">N/A</p>
+                                 <!--?lit$400367749$-->
+                                </td>
+                                <!---->
+                   </tr>  
+                    <!----><!---->
+                    <tr class="table-row nth-child-2 ">
+                    <!--?lit$400367749$--><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-0 " width="200">
+                                <!--?lit$400367749$--><p class="ConfigWindow"><span class="DnTnobold">R1</span></p>
+                                 <!--?lit$400367749$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-1 " width="">
+                                <!--?lit$400367749$--><p class="TableText">G0/1</p>
+                                 <!--?lit$400367749$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-2 " width="">
+                                <!--?lit$400367749$--><p class="TableText">172.22.34.97</p>
+                                 <!--?lit$400367749$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-3 " width="">
+                                <!--?lit$400367749$--><p class="TableText">255.255.255.240</p>
+                                 <!--?lit$400367749$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-4 " width="">
+                                <!--?lit$400367749$--><p class="ConfigWindow">N/A</p>
+                                 <!--?lit$400367749$-->
+                                </td>
+                                <!---->
+                   </tr>  
+                    <!----><!---->
+                    <tr class="table-row nth-child-3 ">
+                    <!--?lit$400367749$--><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-0 " width="200">
+                                <!--?lit$400367749$--><p class="ConfigWindow"><span class="DnTnobold">R1</span></p>
+                                 <!--?lit$400367749$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-1 " width="">
+                                <!--?lit$400367749$--><p class="TableText">G0/2</p>
+                                 <!--?lit$400367749$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-2 " width="">
+                                <!--?lit$400367749$--><p class="TableText">172.22.34.1</p>
+                                 <!--?lit$400367749$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-3 " width="">
+                                <!--?lit$400367749$--><p class="TableText">255.255.255.192</p>
+                                 <!--?lit$400367749$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-4 " width="">
+                                <!--?lit$400367749$--><p class="ConfigWindow">N/A</p>
+                                 <!--?lit$400367749$-->
+                                </td>
+                                <!---->
+                   </tr>  
+                    <!----><!---->
+                    <tr class="table-row nth-child-4 ">
+                    <!--?lit$400367749$--><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-0 " width="200">
+                                <!--?lit$400367749$--><p class="TableText"><span class="DnTnobold">Server</span></p>
+                                 <!--?lit$400367749$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-1 " width="">
+                                <!--?lit$400367749$--><p class="TableText">NIC</p>
+                                 <!--?lit$400367749$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-2 " width="">
+                                <!--?lit$400367749$--><p class="TableText">172.22.34.62</p>
+                                 <!--?lit$400367749$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-3 " width="">
+                                <!--?lit$400367749$--><p class="TableText">255.255.255.192</p>
+                                 <!--?lit$400367749$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-4 " width="">
+                                <!--?lit$400367749$--><p class="TableText">172.22.34.1</p>
+                                 <!--?lit$400367749$-->
+                                </td>
+                                <!---->
+                   </tr>  
+                    <!----><!---->
+                    <tr class="table-row nth-child-5 ">
+                    <!--?lit$400367749$--><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-0 " width="200">
+                                <!--?lit$400367749$--><p class="TableText"><span class="DnTnobold">PC1</span></p>
+                                 <!--?lit$400367749$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-1 " width="">
+                                <!--?lit$400367749$--><p class="TableText">NIC</p>
+                                 <!--?lit$400367749$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-2 " width="">
+                                <!--?lit$400367749$--><p class="TableText">172.22.34.66</p>
+                                 <!--?lit$400367749$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-3 " width="">
+                                <!--?lit$400367749$--><p class="TableText">255.255.255.224</p>
+                                 <!--?lit$400367749$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-4 " width="">
+                                <!--?lit$400367749$--><p class="TableText">172.22.34.65</p>
+                                 <!--?lit$400367749$-->
+                                </td>
+                                <!---->
+                   </tr>  
+                    <!----><!---->
+                    <tr class="table-row nth-child-6 ">
+                    <!--?lit$400367749$--><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-0 " width="200">
+                                <!--?lit$400367749$--><p class="TableText"><span class="DnTnobold">PC2</span></p>
+                                 <!--?lit$400367749$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-1 " width="">
+                                <!--?lit$400367749$--><p class="TableText">NIC</p>
+                                 <!--?lit$400367749$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-2 " width="">
+                                <!--?lit$400367749$--><p class="TableText">172.22.34.98</p>
+                                 <!--?lit$400367749$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-3 " width="">
+                                <!--?lit$400367749$--><p class="TableText">255.255.255.240</p>
+                                 <!--?lit$400367749$-->
+                                </td>
+                                <!----><!---->
+                                <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-4 " width="">
+                                <!--?lit$400367749$--><p class="TableText">172.22.34.97</p>
+                                 <!--?lit$400367749$-->
+                                </td>
+                                <!---->
+                   </tr>  
+                    <!---->
+                </tbody></table>
+                </div>
+            </div>
+        <div>
+        </div>
+        </div></div></table-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="d006f12a-e89b-41c2-bc55-6cb271a83bd9" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme" sgpulse-type="block" style="width: 20%;"><!---->
+                
+                <div data-socialgoodpulse-id="d006f12a-e89b-41c2-bc55-6cb271a83bd9" class="d006f12a-e89b-41c2-bc55-6cb271a83bd9 block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="d006f12a-e89b-41c2-bc55-6cb271a83bd9" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+              <div class="block__header-inner ">
+                  
+                    <!--?lit$400367749$-->
+                  <!--?lit$400367749$-->
+                  <!--?lit$400367749$-->
+                  <!--?lit$400367749$-->
+                  <!--?lit$400367749$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$400367749$--><!----><text-view modelid="e01eb4c5-393b-4450-b1d9-12abc475e439" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="e01eb4c5-393b-4450-b1d9-12abc475e439" class="component text e01eb4c5-393b-4450-b1d9-12abc475e439  is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header text__header">
+              <div class="component__header-inner text__header-inner">
+                  
+                    <!--?lit$400367749$-->
+                  <!--?lit$400367749$-->
+                  <!--?lit$400367749$--> <div class="component__content">
+                      <div tabindex="0" class="component__body text__body">
+                        <div class="component__body-inner text__body-inner"><!--?lit$400367749$--><h2>Objectives</h2> <p class="BodyTextL25Bold">Part 1: Configure, Apply and Verify an Extended Numbered ACL</p> <p class="BodyTextL25Bold">Part 2: Configure, Apply and Verify an Extended Named ACL</p> <h2>Background / Scenario</h2> <p class="BodyTextL25">Two employees need access to services provided by the server. <span class="DnTbold">PC1</span> only needs FTP access while <b>PC2</b> only needs web access. Both computers need to be able to ping the server, but not each other.</p> <h2>Instructions</h2> <h2>Part 1: Configure, Apply and Verify an Extended Numbered ACL</h2> <h3>Step 1: Configure an ACL to permit FTP and ICMP from <span class="DnTnobold">PC1</span> LAN.</h3> <p class="SubStepAlpha">a.<span>&nbsp;&nbsp;</span>From global configuration mode on <span class="DnTbold">R1</span>, enter the following command to determine the first valid number for an extended access list.</p> <p class="CMD">R1(config)# <b>access-list ?</b></p> <p class="CMDOutput">&nbsp; &lt;1-99&gt;&nbsp;&nbsp;&nbsp;&nbsp; IP standard access list</p> <p class="CMDOutput">&nbsp; &lt;100-199&gt;&nbsp; IP extended access list</p> <p class="SubStepAlpha">b.<span>&nbsp;&nbsp;</span>Add <b>100</b> to the command, followed by a question mark.</p> <p class="CMD">R1(config)# <b>access-list 100 ?</b></p> <p class="CMDOutput">&nbsp; deny&nbsp;&nbsp;&nbsp; Specify packets to reject</p> <p class="CMDOutput">&nbsp; permit&nbsp; Specify packets to forward</p> <p class="CMDOutput">&nbsp; remark&nbsp; Access list entry comment</p> <p class="SubStepAlpha">c.<span>&nbsp;&nbsp;</span>To permit FTP traffic, enter <b>permit,</b> followed by a question mark. </p> <p class="CMD">R1(config)# <b>access-list 100 permit ?</b></p> <p class="CMDOutput">&nbsp; ahp&nbsp;&nbsp;&nbsp; Authentication Header Protocol</p> <p class="CMDOutput">&nbsp; eigrp&nbsp; Cisco's EIGRP routing protocol</p> <p class="CMDOutput">&nbsp; esp&nbsp;&nbsp;&nbsp; Encapsulation Security Payload</p> <p class="CMDOutput">&nbsp; gre&nbsp;&nbsp;&nbsp; Cisco's GRE tunneling</p> <p class="CMDOutput">&nbsp; icmp&nbsp;&nbsp; Internet Control Message Protocol</p> <p class="CMDOutput">&nbsp; ip&nbsp;&nbsp;&nbsp;&nbsp; Any Internet Protocol</p> <p class="CMDOutput">&nbsp; ospf&nbsp;&nbsp; OSPF routing protocol</p> <p class="CMDOutput">&nbsp; tcp&nbsp;&nbsp;&nbsp; Transmission Control Protocol</p> <p class="CMDOutput">&nbsp; udp&nbsp;&nbsp;&nbsp; User Datagram Protocol</p> <p class="SubStepAlpha">d.<span>&nbsp;&nbsp;</span>When configured and applied, this ACL should permit FTP and ICMP. ICMP is listed above, but FTP is not. This is because FTP is an application layer protocol that uses TCP at the transport layer. Enter TCP to further refine the ACL help.</p> <p class="CMD">R1(config)# <b>access-list 100 permit tcp ?</b></p> <p class="CMDOutput">&nbsp; A.B.C.D&nbsp; Source address</p> <p class="CMDOutput">&nbsp; any&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Any source host</p> <p class="CMDOutput">&nbsp; host&nbsp;&nbsp;&nbsp;&nbsp; A single source host</p> <p class="SubStepAlpha">e.<span>&nbsp;&nbsp;</span>The source address can represent a single device, such as PC1, by using the <b>host</b> keyword and then the IP address of PC1. Using the keyword <b>any</b> permits any host on any network. Filtering can also be done by a network address. In this case, it is any host that has an address belonging to the 172.22.34.64/27 network. Enter this network address, followed by a question mark.</p> <p class="CMD">R1(config)# <b>access-list 100 permit tcp 172.22.34.64 ?</b></p> <p class="CMDOutput">&nbsp; A.B.C.D&nbsp; Source wildcard bits</p> <p class="SubStepAlpha">f.<span>&nbsp;&nbsp;&nbsp;</span>Calculate the wildcard mask by determining the binary opposite of the /27 subnet mask.</p> <p class="CMD"><b>11111111.11111111.11111111.111</b>00000 = 255.255.255.224</p> <p class="CMD">00000000.00000000.00000000.000<b>11111</b> = 0.0.0.31</p> <p class="SubStepAlpha">g.<span>&nbsp;&nbsp;</span>Enter the wildcard mask, followed by a question mark.</p> <p class="CMD">R1(config)# <b>access-list 100 permit tcp 172.22.34.64 0.0.0.31 ?</b></p> <p class="CMDOutput">&nbsp; A.B.C.D&nbsp; Destination address</p> <p class="CMDOutput">&nbsp; any&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Any destination host</p> <p class="CMDOutput">&nbsp; eq&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Match only packets on a given port number</p> <p class="CMDOutput">&nbsp; gt&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Match only packets with a greater port number</p> <p class="CMDOutput">&nbsp; host&nbsp;&nbsp;&nbsp;&nbsp; A single destination host</p> <p class="CMDOutput">&nbsp; lt&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Match only packets with a lower port number</p> <p class="CMDOutput">&nbsp; neq&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Match only packets not on a given port number</p> <p class="CMDOutput">&nbsp; range&nbsp;&nbsp;&nbsp; Match only packets in the range of port numbers</p> <p class="SubStepAlpha">h.<span>&nbsp;&nbsp;</span>Configure the destination address. In this scenario, we are filtering traffic for a single destination, which is the server. Enter the host keyword followed by the server’s IP address.</p> <p class="CMD">R1(config)# <b>access-list 100 permit tcp 172.22.34.64 0.0.0.31 host 172.22.34.62 ?</b></p> <p class="CMDOutput">&nbsp; dscp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Match packets with given dscp value</p> <p class="CMDOutput">&nbsp; eq&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Match only packets on a given port number</p> <p class="CMDOutput">&nbsp; established&nbsp; established</p> <p class="CMDOutput">&nbsp; gt&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Match only packets with a greater port number</p> <p class="CMDOutput">&nbsp; lt&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Match only packets with a lower port number</p> <p class="CMDOutput">&nbsp; neq&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Match only packets not on a given port number</p> <p class="CMDOutput">&nbsp; precedence&nbsp;&nbsp; Match packets with given precedence value</p> <p class="CMDOutput">&nbsp; range&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Match only packets in the range of port numbers</p> <p class="CMDOutput">&nbsp; &lt;cr&gt;</p> <p class="SubStepAlpha">i.<span>&nbsp;&nbsp;&nbsp;</span>Notice that one of the options is <b>&lt;cr&gt;</b> (carriage return). In other words, you can press <b>Enter</b> and the statement would permit all TCP traffic. However, we are only permitting FTP traffic; therefore, enter the <b>eq</b> keyword, followed by a question mark to display the available options. Then, enter <b>ftp</b> and press <b>Enter</b>.</p> <p class="CMD">R1(config)# <b>access-list 100 permit tcp 172.22.34.64 0.0.0.31 host 172.22.34.62 eq ?</b></p> <p class="CMDOutput">&nbsp; &lt;0-65535&gt;&nbsp; Port number</p> <p class="CMDOutput">&nbsp; ftp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; File Transfer Protocol (21)</p> <p class="CMDOutput">&nbsp; pop3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Post Office Protocol v3 (110)</p> <p class="CMDOutput">&nbsp; smtp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Simple Mail Transport Protocol (25)</p> <p class="CMDOutput">&nbsp; telnet&nbsp;&nbsp;&nbsp;&nbsp; Telnet (23)</p> <p class="CMDOutput">&nbsp; www&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; World Wide Web (HTTP, 80)</p> <p class="CMD">R1(config)# <b>access-list 100 permit tcp 172.22.34.64 0.0.0.31 host 172.22.34.62 eq ftp</b></p> <p class="SubStepAlpha">j.<span>&nbsp;&nbsp;&nbsp;</span>Create a second access list statement to permit ICMP (ping, etc.) traffic from PC1 to Server. Note that the access list number remains the same and a specific type of ICMP traffic does not need to be specified.</p> <p class="CMD">R1(config)# <b>access-list 100 permit icmp 172.22.34.64 0.0.0.31 host 172.22.34.62</b></p> <p class="SubStepAlpha">k.<span>&nbsp;&nbsp;</span>All other traffic is denied, by default.</p> <p class="SubStepAlpha">l.<span>&nbsp;&nbsp;&nbsp;</span>Execute the <b>show access-list</b> command and verify that access list 100 contains the correct statements. Notice that the statement <b>deny any any</b> does not appear at the end of the access list. The default execution of an access list is that if a packet does not match a statement in the access list, it is not permitted through the interface.</p> <p class="CMD">R1#<b>show access-lists</b></p> <p class="CMD">Extended IP access list 100</p> <p class="CMD">&nbsp;&nbsp;&nbsp; 10 permit tcp 172.22.34.64 0.0.0.31 host 172.22.34.62 eq ftp</p> <p class="CMD">&nbsp;&nbsp;&nbsp; 20 permit icmp 172.22.34.64 0.0.0.31 host 172.22.34.62</p> <h3>Step 2: Apply the ACL on the correct interface to filter traffic.</h3> <p class="BodyTextL25">From <span class="DnTbold">R1</span>’s perspective, the traffic that ACL 100 applies to is inbound from the network connected to the Gigabit Ethernet 0/0 interface. Enter interface configuration mode and apply the ACL.</p> <p class="BodyTextL25"><b>Note</b>: On an actual operational network, it is not a good practice to apply an untested access list to an active interface.</p> <p class="CMD">R1(config)# <b>interface gigabitEthernet 0/0</b></p> <p class="CMD">R1(config-if)# <b>ip access-group 100 in</b></p> <h3>Step 3: Verify the ACL implementation.</h3> <p class="SubStepAlpha">a.<span>&nbsp;&nbsp;</span>Ping from PC1 to Server. If the pings are unsuccessful, verify the IP addresses before continuing.</p> <p class="SubStepAlpha">b.<span>&nbsp;&nbsp;</span>FTP from PC1 to Server. The username and password are both <b>cisco</b>.</p> <p class="CMD">PC&gt; <b>ftp 172.22.34.62</b></p> <p class="SubStepAlpha">c.<span>&nbsp;&nbsp;</span>Exit the FTP service.</p> <p class="CMD">ftp&gt; <b>quit</b></p> <p class="SubStepAlpha">d.<span>&nbsp;&nbsp;</span>Ping from PC1 to PC2. The destination host should be unreachable, because the ACL did not explicitly permit the traffic.</p> <h2>Part 2: Configure, Apply and Verify an Extended Named ACL</h2> <h3>Step 1: Configure an ACL to permit HTTP access and ICMP from <span class="DnTnobold">PC2</span> LAN.</h3> <p class="SubStepAlpha">a.<span>&nbsp;&nbsp;</span>Named ACLs start with the <b>ip</b> keyword. From global configuration mode of <span class="DnTbold">R1</span>, enter the following command, followed by a question mark.</p> <p class="CMD">R1(config)# <b>ip access-list ?</b></p> <p class="CMD">&nbsp; extended&nbsp; Extended Access List</p> <p class="CMD">&nbsp; standard&nbsp; Standard Access List</p> <p class="SubStepAlpha">b.<span>&nbsp;&nbsp;</span>You can configure named standard and extended ACLs. This access list filters both source and destination IP addresses; therefore, it must be extended. Enter <b>HTTP_ONLY</b> as the name. (For Packet Tracer scoring, the name is case-sensitive and the access list statements must be the correct order.)</p> <p class="CMD">R1(config)# <b>ip access-list extended HTTP_ONLY</b></p> <p class="SubStepAlpha">c.<span>&nbsp;&nbsp;</span>The prompt changes. You are now in extended named ACL configuration mode. All devices on the <span class="DnTbold">PC2</span> LAN need TCP access. Enter the network address, followed by a question mark.</p> <p class="CMD">R1(config-ext-nacl)# <b>permit tcp 172.22.34.96 ?</b></p> <p class="CMDOutput">&nbsp; A.B.C.D&nbsp; Source wildcard bits</p> <p class="SubStepAlpha">d.<span>&nbsp;&nbsp;</span>An alternative way to calculate a wildcard is to subtract the subnet mask from 255.255.255.255.</p> <p class="CMD">&nbsp; 255.255.255.255</p> <p class="CMD">- 255.255.255.240</p> <p class="CMD">-----------------</p> <p class="CMD">=&nbsp;&nbsp; 0.&nbsp;0.&nbsp;0. 15</p> <p class="CMD">R1(config-ext-nacl)# <b>permit tcp 172.22.34.96 0.0.0.15</b></p> <p class="SubStepAlpha">e.<span>&nbsp;&nbsp;</span>Finish the statement by specifying the server address as you did in Part 1 and filtering <b>www</b> traffic.</p> <p class="CMD"><span style="font-size:9.0pt">R1(config-ext-nacl)</span># <b>permit tcp 172.22.34.96 0.0.0.15 host 172.22.34.62 eq www</b></p> <p class="SubStepAlpha">f.<span>&nbsp;&nbsp;&nbsp;</span>Create a second access list statement to permit ICMP (ping, etc.) traffic from <span class="DnTbold">PC2</span> to <span class="DnTbold">Server</span>. Note: The prompt remains the same and a specific type of ICMP traffic does not need to be specified.</p> <p class="CMD">R1(config-ext-nacl)# <b>permit icmp 172.22.34.96 0.0.0.15 host 172.22.34.62</b></p> <p class="SubStepAlpha">g.<span>&nbsp;&nbsp;</span>All other traffic is denied, by default. Exit extended named ACL configuration mode.</p> <p class="SubStepAlpha">h.<span>&nbsp;&nbsp;</span>Execute the <b>show access-list</b> command and verify that access list <b>HTTP_ONLY</b> contains the correct statements.</p> <p class="CMD">R1# <b>show access-lists</b></p> <p class="CMDOutput">Extended IP access list 100</p> <p class="CMDOutput">10 permit tcp 172.22.34.64 0.0.0.31 host 172.22.34.62 eq ftp</p> <p class="CMDOutput">20 permit icmp 172.22.34.64 0.0.0.31 host 172.22.34.62</p> <p class="CMDOutput">Extended IP access list HTTP_ONLY</p> <p class="CMDOutput">10 permit tcp 172.22.34.96 0.0.0.15 host 172.22.34.62 eq www</p> <p class="CMDOutput">20 permit icmp 172.22.34.96 0.0.0.15 host 172.22.34.62</p> <h3>Step 2: Apply the ACL on the correct interface to filter traffic.</h3> <p class="BodyTextL25">From <span class="DnTbold">R1</span>’s perspective, the traffic that access list <b>HTTP_ONLY</b> applies to is inbound from the network connected to the Gigabit Ethernet 0/1 interface. Enter interface configuration mode and apply the ACL.</p> <p class="BodyTextL25"><b>Note</b>: On an actual operational network, it is not a good practice to apply an untested access list to an active interface.&nbsp;It should be avoided if possible.</p> <p class="CMD">R1(config)# <b>interface gigabitEthernet 0/1</b></p> <p class="CMD">R1(config-if)# <b>ip access-group HTTP_ONLY in</b></p> <h3>Step 3: Verify the ACL implementation.</h3> <p class="SubStepAlpha">a.<span>&nbsp;&nbsp;</span>Ping from <span class="DnTbold">PC2</span> to <span class="DnTbold">Server</span>. If the ping is unsuccessful, verify the IP addresses before continuing.</p> <p class="SubStepAlpha">b.<span>&nbsp;&nbsp;</span>From PC2 open a web browser and enter the IP address of the Server. The web page of the Server should be displayed.</p> <p class="SubStepAlpha">c.<span>&nbsp;&nbsp;</span>FTP from <span class="DnTbold">PC2</span> to <span class="DnTbold">Server</span>. The connection should fail. If not, troubleshoot the access list statements and the access-group configurations on the interfaces.</p></div>
+                      </div>
+                    </div>
+                  <!--?lit$400367749$-->
+                  <!--?lit$400367749$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="6dcce28d69534dc7b7f7a6e8789a5c28" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme" sgpulse-type="block" style="width: 20%;"><!---->
+                
+                <div data-socialgoodpulse-id="6dcce28d69534dc7b7f7a6e8789a5c28" class="6dcce28d69534dc7b7f7a6e8789a5c28 block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="6dcce28d69534dc7b7f7a6e8789a5c28" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+              <div class="block__header-inner ">
+                  
+                    <!--?lit$400367749$-->
+                  <!--?lit$400367749$-->
+                  <!--?lit$400367749$-->
+                  <!--?lit$400367749$-->
+                  <!--?lit$400367749$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$400367749$--><!----><check-view modelid="076819c1e1304f178ca6f686aa95916e" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+            <div class="check-inner component__inner"> 
+                <div data-socialgoodpulse-id="076819c1e1304f178ca6f686aa95916e" class="component check 076819c1e1304f178ca6f686aa95916e  is-full   ">
+                    <div class="component__header-container">
+                        <div data-socialgoodpulse-id="076819c1e1304f178ca6f686aa95916e" class="binarytodecimal ">
+                            <base-view type="component" lowercase_component="check" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header check__header">
+              <div class="component__header-inner check__header-inner">
+                  
+                    <!--?lit$400367749$-->
+                  <!--?lit$400367749$-->
+                  <!--?lit$400367749$-->
+                  <!--?lit$400367749$-->
+                  <!--?lit$400367749$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                        </div>
+                    </div>
+                    <div class="component__widget check__widget">
+                        <div class="component__inner check__inner">
+                            <button class="check__button"><!--?lit$400367749$-->Check Results</button>
+                            <div tabindex="0" class="check__solution check__hidden"><!--?lit$400367749$--><p class="DevConfigs"><span class="DevConfigGray"><span style="border:none"><span style="border:none">----------------</span></span></span></p> <p class="DevConfigs"><span class="DevConfigGray"><span style="border:none"><span style="border:none">Router R1</span></span></span></p> <p class="DevConfigs"><span class="DevConfigGray"><span style="border:none"><span style="border:none">----------------</span></span></span></p> <p class="DevConfigs"><span class="DevConfigGray"><span style="border:none"><span style="border:none">enable</span></span></span></p> <p class="DevConfigs"><span class="DevConfigGray"><span style="border:none"><span style="border:none">configure terminal</span></span></span></p> <p class="DevConfigs"><span class="DevConfigGray"><span style="border:none"><span style="border:none">access-list 100 permit tcp 172.22.34.64 0.0.0.31 host 172.22.34.62 eq ftp</span></span></span></p> <p class="DevConfigs"><span class="DevConfigGray"><span style="border:none"><span style="border:none">access-list 100 permit icmp 172.22.34.64 0.0.0.31 host 172.22.34.62</span></span></span></p> <p class="DevConfigs"><span class="DevConfigGray"><span style="border:none"><span style="border:none">interface gigabitEthernet 0/0</span></span></span></p> <p class="DevConfigs"><span class="DevConfigGray"><span style="border:none"><span style="border:none">&nbsp;ip access-group 100 in</span></span></span></p> <p class="DevConfigs"><span class="DevConfigGray"><span style="border:none"><span style="border:none">ip acce<span style="border:none">ss-list extended HTTP_ONLY</span></span></span></span></p> <p class="DevConfigs"><span class="DevConfigGray"><span style="border:none"><span style="border:none">&nbsp;permit tcp 172.22.34.96 0.0.0.15</span></span></span></p> <p class="DevConfigs"><span class="DevConfigGray"><span style="border:none"><span style="border:none">&nbsp;permit tcp 172.22.34.96 0.0.0.15 host 172.22.34.62 eq www</span></span></span></p> <p class="DevConfigs"><span class="DevConfigGray"><span style="border:none"><span style="border:none">&nbsp;permit icmp 172.22.34.96 0.0.0.15 host 172.22.34.62</span></span></span></p> <p class="DevConfigs"><span class="DevConfigGray"><span style="border:none"><span style="border:none">interface gigabitEthernet 0/1</span></span></span></p> <p class="DevConfigs"><span class="DevConfigGray"><span style="border:none"><span style="border:none">ip access-group HTTP_ONLY in</span></span></span></p></div>
+                        </div>
+                   </div>
+                </div>
+            </div>
+        <div>
+        </div></div></check-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="00feb034-4d00-440f-b95d-527e95b3ae16" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme" sgpulse-type="block" style="width: 20%;"><!---->
+                
+                <div data-socialgoodpulse-id="00feb034-4d00-440f-b95d-527e95b3ae16" class="00feb034-4d00-440f-b95d-527e95b3ae16 block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="00feb034-4d00-440f-b95d-527e95b3ae16" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+              <div class="block__header-inner ">
+                  
+                    <!--?lit$400367749$-->
+                  <!--?lit$400367749$-->
+                  <!--?lit$400367749$-->
+                  <!--?lit$400367749$-->
+                  <!--?lit$400367749$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$400367749$--><!----><text-view modelid="8c640766-3e2b-4f2f-a045-5f31d5e145db" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="8c640766-3e2b-4f2f-a045-5f31d5e145db" class="component text 8c640766-3e2b-4f2f-a045-5f31d5e145db  is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header text__header">
+              <div class="component__header-inner text__header-inner">
+                  
+                    <!--?lit$400367749$-->
+                  <!--?lit$400367749$-->
+                  <!--?lit$400367749$--> <div class="component__content">
+                      <div tabindex="0" class="component__body text__body">
+                        <div class="component__body-inner text__body-inner"><!--?lit$400367749$--><span> <hr><span style="padding-right:5px;float:left;font-family:arial;font-size:12px;">© 2017 - 2022 Cisco and/or its affiliates. All rights reserved. Cisco Public</span> </span></div>
+                      </div>
+                    </div>
+                  <!--?lit$400367749$-->
+                  <!--?lit$400367749$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!---->
+                            </div>
+                        </div>
+                        <!--?lit$400367749$-->
+                    </div>
+                </div>
+            </div>
+        <script></script>
+<script>
+    window.addEventListener("load", function () {
+      console.log("loaded");
+      document?.querySelectorAll(".answergray").forEach(function (ele) {
+        ele.classList.add("u-display-none");
+      });
+      document?.querySelectorAll(".hide-answer").forEach(function (ele) {
+        ele.classList.add("u-display-none");
+      });
+      document?.querySelectorAll(".show-answer").forEach(function (ele) {
+        ele.addEventListener("click", function (e) {
+          e.currentTarget.nextElementSibling.classList.remove("u-display-none");
+          e.currentTarget
+            .closest(".question-container")
+            ?.querySelectorAll(".answergray")
+            .forEach(function (ele) {
+              ele.classList.remove("u-display-none");
+            });
+          ele.classList.add("u-display-none");
+        });
+      });
+      document?.querySelectorAll(".hide-answer").forEach(function (ele) {
+        ele.addEventListener("click", function (e) {
+          e.currentTarget.previousElementSibling.classList.remove("u-display-none");
+          e.currentTarget
+            .closest(".question-container")
+            ?.querySelectorAll(".answergray")
+            .forEach(function (ele) {
+              ele.classList.add("u-display-none");
+            });
+          ele.classList.add("u-display-none");
+        });
+      });
+      let event = new Event("click", {
+        bubbles: true,
+        cancelable: true,
+      });
+      document
+        ?.querySelectorAll(".openTextBoxController__showButton")
+        .forEach(function (ele) {
+          ele.addEventListener("click", function (e) {
+            e.currentTarget.nextElementSibling.classList.remove("u-display-none");
+            ele.classList.add("u-display-none");
+            document?.querySelectorAll(".show-answer").forEach(function (ele) {
+              ele?.dispatchEvent(event);
+            });
+          });
+        });
+
+      document
+        ?.querySelectorAll(".openTextBoxController__hideButton")
+        .forEach(function (ele) {
+          ele.addEventListener("click", function (e) {
+            e.currentTarget.previousElementSibling.classList.remove("u-display-none");
+            ele.classList.add("u-display-none");
+            document?.querySelectorAll(".hide-answer").forEach(function (ele) {
+              ele?.dispatchEvent(event);
+            });
+          });
+        });
+
+      document
+        ?.querySelectorAll(".openTextBoxController__resetButton")
+        .forEach(function (ele) {
+          ele.addEventListener("click", function (e) {
+            document?.querySelectorAll("textArea").forEach(function (ele) {
+              ele.value = "";
+            });
+          });
+        });
+
+      document
+      ?.querySelectorAll('textarea')
+      .forEach(function (ele){
+        ele.defaultValue = ele.defaultValue.replace(/<!--.*?-->/g, '');
+      })
+        let checkButtonLabel = "Check Results";
+        let hideButtonLabel = "Hide Results";
+        document?.querySelectorAll(".check__button").forEach(function (ele) {
+        let answerBox = document.querySelector(".check__solution")
+        if (!answerBox.classList.contains("check__hidden")) {
+          answerBox.classList.add("check__hidden");
+          ele.innerText = checkButtonLabel;
+        }
+          ele.addEventListener("click", function (e) {
+            if (answerBox.classList.contains("check__hidden")) {
+              answerBox.classList.remove("check__hidden")
+              ele.innerText = hideButtonLabel;
+            } else {
+              answerBox.classList.add("check__hidden")
+              ele.innerText = checkButtonLabel;
+            }
+          })
+        })
+    });
+  </script>
+  </body></html>

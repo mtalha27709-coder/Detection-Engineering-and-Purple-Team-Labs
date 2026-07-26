@@ -1,0 +1,901 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8">
+<style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 1rem;
+      }
+      ol,
+      ul {
+        margin-bottom: 0in;
+      }
+      table {
+        margin-top: 1rem;
+        border: 1px solid gray;
+        width: 7in;
+        border-collapse: collapse;
+      }
+
+      table > thead > tr > .openTableTextBox__table-header-data {
+        text-align: center;
+        margin-top: 6pt;
+        margin-right: 0in;
+        margin-bottom: 6pt;
+        margin-left: 0in;
+        text-align: center;
+        line-height: 115%;
+        page-break-after: avoid;
+        font-size: 10pt;
+        font-family: "Arial", sans-serif;
+        font-weight: bold;
+        background: #dbe5f1;
+        padding: 0.5rem;
+      }
+      .openTableTextBox__answerText
+        table
+        > thead
+        > tr
+        > .openTableTextBox__table-header-data {
+        background: #f2dbdb !important;
+      }
+      .openTextBox__textArea-container {
+        margin-top: 6pt;
+        margin-right: 0in;
+        margin-bottom: 6pt;
+        font-size: 10pt;
+        font-family: "Arial", sans-serif;
+        width: 50%;
+      }
+      .openTableTextBox__fieldset {
+        padding: 5px;
+      }
+      td {
+        margin-top: 3pt;
+        margin-right: 0in;
+        margin-bottom: 3pt;
+        margin-left: 0in;
+        font-size: 10pt;
+        font-family: "Arial", sans-serif;
+        width: 98.85pt;
+        border: solid windowtext 1pt;
+        border-top: none;
+        padding: 0.7pt 5.75pt 0.7pt 5.75pt;
+      }
+      textarea {
+        width: 100%;
+      }
+      .answergray {
+        padding: 0.2rem;
+      }
+
+      .openTableTextBox__widget {
+        margin-top: 6pt;
+        margin-right: 0in;
+        margin-bottom: 6pt;
+        margin-left: 0.25in;
+      }
+
+      .show-answer,
+      .hide-answer {
+        padding: 0.5rem 1rem;
+        background-color: #3d692b;
+        color: #fff;
+        border: 0px;
+        cursor: pointer;
+        margin-bottom: 0.5rem;
+        margin-top: 0.5rem;
+      }
+
+      .openTextBoxController__button-container {
+        display: flex;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .openTextBoxController__button-container .btn-text {
+        margin: 10px;
+      }
+
+      .btn-text {
+        border: 0px;
+        padding: 0.5rem 1rem;
+        background-color: #3d692b;
+        color: #fff;
+        border-radius: 0;
+        cursor: pointer;
+      }
+
+      .u-display-none {
+        display: none;
+      }
+      .openTextBox__postText, openTableTextBox__postText {
+        margin-top: 0.5rem;
+      }
+      .edit-comment {
+        display: none;
+      }
+      .js-heading-inner {
+        display: none;
+      }
+      .block__title-inner,
+      .article__title-inner {
+        display: block;
+        font-size: 1.5em;
+        margin-block-start: 0.83em;
+        margin-block-end: 0.83em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        font-weight: bold;
+      }
+      h2{
+        font-size: 1.25em;
+      }
+      h3{
+        font-size: 1.125em;
+      }
+      .table
+        > .table-inner
+        > .table-wrapper
+        > .table-widget
+        > table
+        > tbody
+        > tr
+        > th {
+        border: solid windowtext 1pt;
+      }
+      table tbody tr th, table thead tr th{
+        border: solid windowtext 1pt;
+        background-color: #d6d8dc;
+      }
+      .openTableTextBox__answerText
+        table
+        > thead
+        > tr
+        > .openTableTextBox__table-header-data {
+        background: #f2dbdb !important;
+      }
+      .command-output > .table-inner > .table-wrapper > .table-widget > table,
+      .command-output
+        > .table-inner
+        > .table-wrapper
+        > .table-widget
+        > table
+        > tbody
+        > tr
+        > td,
+      .command-output
+        > .table-inner
+        > .table-wrapper
+        > .table-widget
+        > table
+        > tbody
+        > tr
+        > th {
+        border: none !important;
+        text-align: right !important;
+      }
+      .simple-table > .table-inner > .table-wrapper{
+        margin-left: 1.5rem;
+      }
+      .openTextBox__widget {
+        margin-left: 1.5rem;
+      }
+      img {
+        width: 30%;
+        height: auto;
+        margin-top: 1rem;
+        margin-left: 3rem;
+      }
+      .answergray {
+        background-color: #ccc;
+      }
+      .openTableTextBox__widget > .answergray {
+        background-color: #fff !important;
+      }
+      li > ul,ol > li{
+        margin-left: 0px !important;
+      }
+      img {
+        width: 30%;
+        height: auto;
+        margin-top: 1rem;
+        margin-left: 3rem;
+      }
+      
+      .component__title{
+        font-family: inherit;
+        font-size: 1.65em;
+        font-weight: 600;
+        line-height: 1.5;
+      }
+
+      .component__body {
+        padding-top: 20px;
+        padding-bottom: 20px;
+      }
+
+      .accessibility-completion-indicator{
+        display: none;
+      }
+
+      .check__hidden {
+        display: none;
+      }
+
+      .check__button {
+        border: none;
+        border-radius: 6px !important;
+        background-color: #6abf4b;
+        color: #fff;
+        min-width: 100px;
+        margin: 0.625rem 0;
+        padding: 0.7rem;
+      }
+
+      .check__widget .check__solution .DevConfigGray {
+        background-color: rgb(214,216,220);
+        font-weight: bold;
+      }
+
+      .check-inner .check__widget .check__solution .DevConfigs {
+        margin: 0px;
+        line-height: 115%;
+        font-family: "Courier New", Courier, monospace;
+      }
+
+      .check__solution  {
+        line-height: 1.5;
+      }
+      .mcq__inner .mcq__widget .mcq__widget-inner {
+        margin-block: 1rem;
+      }
+      .mcq__inner .mcq__widget .mcq__item {
+        display: flex;
+        gap: 0.2rem;
+      }
+      .mcq__inner .mcq__widget .mcq__item .mcq__item-label .mcq__item-text .screenReader-position-text{
+        display: none;
+      }
+      .opentabletextbox-inner .opentabletextBox__widget .openTableTextBox__answerText.answergray {
+        background-color: transparent;
+      }
+      .openTextBox__inner .openTextBox__widget .answergray.is-graphic-in-openTextBox{
+        background-color: transparent;
+      }
+      .openTextBox__inner .openTextBox__widget .answergray.is-graphic-in-openTextBox img{
+        margin-block: 1rem;
+        margin-left: initial;
+      }
+      .component__content .component__body-inner .pageTracer-h4-title-hide {
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+        font-size: 0px;
+        color: rgb(var(--neutral-2));
+        font-weight: normal;
+      }
+      .table-inner .table__widget table tr.TableHeading th, .table-inner .table__widget table tr.TableHeading td, .table-inner .table__widget table tr td.TableHeading, .opentabletextbox-table thead tr.TableHeading th, .opentabletextbox-table tbody tr.TableHeading td, .opentabletextbox-table tbody tr td.TableHeading {
+        background-color: #d6d8dc;
+        text-align: center;
+        font-weight: bold;
+      }
+      .component__content .component__body-inner .CMD, .component__content .component__body-inner .CMDOutput, .component__content .component__body-inner .CMDOutput__table{
+        margin-top: 4px;
+        margin-inline-end: 0px;
+        margin-bottom: 4px;
+        margin-inline-start: 30px;
+        font-family: "Courier New", Courier, monospace;
+      }
+      [dir="rtl"] .component__content .component__body-inner .CMDOutput__table span {
+        direction: ltr;
+        display: inline-block;
+      }
+      .openTextBox__inner .openTextBox__widget .CMD, .openTextBox__inner .openTextBox__widget .CMDOutput{
+        margin-top: 4px;
+        margin-inline-end: 0px;
+        margin-bottom: 4px;
+        font-family: "Courier New", Courier, monospace;
+      }
+      .openTextBox__inner .openTextBox__widget .DnTbold, .openTextBox__inner .openTextBox__widget .BodyTextL25Bold, .component__content .component__body-inner .BodyTextL25Bold, .component__content .component__body-inner .DnTbold, .table-inner .table__widget table tr .DnTbold {
+        font-weight: bold;
+      }
+      .component__content .component__body-inner .SubStepNum {
+        text-indent: -25.5px;
+        margin-inline-start: 50px;
+      }
+      .component__content .component__body-inner .BodyTextL50 {
+        margin-inline-start: 30px;
+      }
+      .component__content .component__body-inner .Bulletlevel1 {
+        text-indent: -19px;
+        margin-inline-start: 48px;
+      }
+      .component__content .component__body-inner .Bulletlevel2 {
+          text-indent: -19px;
+          margin-inline-start: 72px;
+      }
+      .openTextBox__inner .openTextBox__widget .ReflectionQ, .component__content .component__body-inner .SubStepAlpha {
+          text-indent: -25.5px;
+          margin-inline-start: 30px;
+      }
+    </style>
+
+</head><body><!---->
+            <div class="article 71073283-ffb7-4733-ac02-b3c91d4bb4e1 remove-padding-top remove-padding-bottom ">
+                <div class="article__inner">
+                <div class=" no-adaptive-scroll">
+                    <!--?lit$158578489$-->
+                        <div class=""> 
+                            <base-view type="article" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="article__header-wrapper remove-padding-top remove-padding-bottom ">
+        <div class="article__header ">
+              <div class="article__header-inner ">
+                  
+                    <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                            <div class="block__container " style="">
+                                <!--?lit$158578489$--><!---->
+                                    <block-view modelid="9b0d8025-df99-473d-951d-01800405df5f" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme" sgpulse-type="block" style="width: 14.2857%;"><!---->
+                
+                <div data-socialgoodpulse-id="9b0d8025-df99-473d-951d-01800405df5f" class="9b0d8025-df99-473d-951d-01800405df5f block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="9b0d8025-df99-473d-951d-01800405df5f" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+              <div class="block__header-inner ">
+                  
+                    <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$158578489$--><!----><text-view modelid="cf3fc059-a0e3-4edd-bd5e-60f16fae18a0" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="cf3fc059-a0e3-4edd-bd5e-60f16fae18a0" class="component text cf3fc059-a0e3-4edd-bd5e-60f16fae18a0  is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header text__header">
+              <div class="component__header-inner text__header-inner">
+                  
+                    <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$--> <div class="component__content">
+                      <div tabindex="0" class="component__body text__body">
+                        <div class="component__body-inner text__body-inner"><!--?lit$158578489$--><h2>Packet Tracer - Logging from Multiple Sources</h2> <h2>Objectives</h2> <p><b>Part 1: Use syslog to capture log files from multiple network devices</b></p> <p><b>Part 2: Observe AAA user access logging</b></p> <p><b>Part 3: Observe NetFlow information</b></p> <h2>Background / Scenario</h2> <p>In this activity, you will use Packet Tracer to view network data generated by syslog, AAA, and NetFlow.</p> <h2>Instructions</h2> <h3>Part 1: View Log Entries with Syslog</h3> <h3>Step 1: The syslog Server</h3> <p>Syslog is a messaging system designed to support remote logging. Syslog clients send log entries to a syslog server. The syslog server concentrates and stores log entries. Packet Tracer supports basic syslog operations and can be used for demonstration. The network includes a syslog server and syslog clients. R1, R2, Core Switch, and the Firewall are syslog clients. These devices are configured to send their log entries to the syslog server. The syslog server collects the log entries and allows them to be read.</p> <p>Log entries are categorized by seven severity levels. Lower levels represent more serious events. The levels are: emergencies (0), alerts (1), critical (2), errors (3), warnings (4), notifications (5), informational (6), and debugging (7). Syslog clients can be configured to ship log entries to syslog servers based on the severity level.</p> <p class="SubStepAlpha"><span>a.</span><span>&nbsp;&nbsp;</span>Click the <b>Syslog Server</b> to open its window.</p> <p class="SubStepAlpha"><span>b.</span><span>&nbsp;&nbsp;</span>Select the <b>Services</b> tab and select <b>SYSLOG</b> from the list of services shown on the left.</p> <p class="SubStepAlpha"><span>c.</span><span>&nbsp;&nbsp;</span>Click <b>On</b> to turn on the Syslog service.</p> <p class="SubStepAlpha"><span>d.</span><span>&nbsp;&nbsp;</span>Syslog entries coming from syslog clients will be shown in the window on the right. Currently, there are no entries.</p> <p class="SubStepAlpha"><span>e.</span><span>&nbsp;&nbsp;</span>Keep this window open and visible and move on to <b>Step 2</b>.</p> <h3>Step 2: Enable Syslog.</h3> <p>The devices are already configured to send log messages to the syslog server, but Packet Tracer only supports the logging for the debugging severity level with syslog. Because of that, we must generate debug level messages (level 7) so they can be sent to the syslog server.</p> <p class="SubStepAlpha"><span>a.</span><span>&nbsp;&nbsp;</span>Click <b>R1</b> <b>&gt; CLI</b> tab. </p> <p class="SubStepAlpha"><span>b.</span><span>&nbsp;&nbsp;</span>Press Enter to get a command prompt and enter the command <b>enable</b>.</p> <p class="SubStepAlpha"><span>c.</span><span>&nbsp;&nbsp;</span>Enter the command <b>debug eigrp packets</b> to enable EIGRP debugging. The command line console will immediately fill with debug messages.</p> <p class="SubStepAlpha"><span>d.</span><span>&nbsp;&nbsp;</span>Return to the <b>Syslog Server</b> window. Verify that log entries appear on the syslog server.</p> <p class="SubStepAlpha"><span>e.</span><span>&nbsp;&nbsp;</span>After a few messages have been logged, click the radio button to turn the syslog service <b>Off</b>.</p></div>
+                      </div>
+                    </div>
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="c7587398-2970-407a-925e-844ff0654637" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme" sgpulse-type="block" style="width: 14.2857%;"><!---->
+                
+                <div data-socialgoodpulse-id="c7587398-2970-407a-925e-844ff0654637" class="c7587398-2970-407a-925e-844ff0654637 block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="c7587398-2970-407a-925e-844ff0654637" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+              <div class="block__header-inner ">
+                  
+                    <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$158578489$--><!----><opentextbox-view modelid="a9fa670f-1c88-46ad-a0db-b347f4e3a3f1" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="a9fa670f-1c88-46ad-a0db-b347f4e3a3f1" class="component opentextbox a9fa670f-1c88-46ad-a0db-b347f4e3a3f1  is-undefined   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="a9fa670f-1c88-46ad-a0db-b347f4e3a3f1" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+              <div class="component__header-inner openTextBox__header-inner">
+                  
+                    <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$158578489$--> <div class="openTextBox__preText"><!--?lit$158578489$--><p class="BodyTextL25">What is some of the information that is included in the syslog messages that are being displayed by the Syslog Server?</p></div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$158578489$--><!--?lit$158578489$-->Answer Area<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Type your answer here." aria-label="Type your answer here.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$158578489$-->
+                      <!--?lit$158578489$--><p class="BodyTextL50Answer"><span class="AnswerGray"><span style=" border:none"><span style="border:none">Example message:<br>EIGRP: Sending HELLO on GigabitEthernet0/0 AS 1, Flags 0x0, Seq 10/0 idbQ 0/0 iidbQ un/rely 0/0 Some of the information is the type of EIGRP packet (HELLO),the interface that received the packet, the EIGRP autonomous system number, timestamp for the message and the source of the message. Details will vary.</span></span></span></p>
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$158578489$-->Show Answer</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$158578489$-->Hide Answer</button>                    
+                      </div>
+                      <!--?lit$158578489$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="391940d3-a353-4592-b684-84c3ab073544" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme" sgpulse-type="block" style="width: 14.2857%;"><!---->
+                
+                <div data-socialgoodpulse-id="391940d3-a353-4592-b684-84c3ab073544" class="391940d3-a353-4592-b684-84c3ab073544 block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="391940d3-a353-4592-b684-84c3ab073544" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+              <div class="block__header-inner ">
+                  
+                    <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$158578489$--><!----><text-view modelid="e41ef9e8-bc36-45f4-86ca-fce908d86010" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="e41ef9e8-bc36-45f4-86ca-fce908d86010" class="component text e41ef9e8-bc36-45f4-86ca-fce908d86010  is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header text__header">
+              <div class="component__header-inner text__header-inner">
+                  
+                    <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$--> <div class="component__content">
+                      <div tabindex="0" class="component__body text__body">
+                        <div class="component__body-inner text__body-inner"><!--?lit$158578489$--><p class="SubStepAlpha"><span>f.</span><span>&nbsp;&nbsp;</span>Close the <b>R1</b> device window..</p> <h3>Step 3: Log User Access</h3> <p>Another important type of log relates to user access. Having records of user logins is crucial for troubleshooting and traffic analysis. Cisco IOS supports Authentication, Authorization and Accounting (AAA). With AAA, it is possible not only to delegate the user validation task to an external server but also to log activities.</p> <p>TACACS+ is a protocol designed to allow remote authentication through a centralized server.</p> <p>Packet Tracer offers basic AAA and TACACS+ support. R2 is also configured as a TACACS+ server. R2 will ask the server if that user is valid by verifying username and password, and grant or deny access based on the response. The server stores user credentials and is also able to log user login transactions. Follow the steps below to log in to R2 and display the log entries related to that login:</p> <p class="SubStepAlpha"><span>a.</span><span>&nbsp;&nbsp;</span>Click the <b>Syslog Server</b> to open its window.</p> <p class="SubStepAlpha"><span>b.</span><span>&nbsp;&nbsp;</span>Select the <b>Desktop</b> tab and select <b>AAA Accounting</b>. Leave this window open.</p> <p class="SubStepAlpha"><span>c.</span><span>&nbsp;&nbsp;</span>Click <b>R2 &gt; CLI</b>.</p> <p class="SubStepAlpha"><span>d.</span><span>&nbsp;&nbsp;</span>Press Enter to get a command prompt. <b>R2</b> will ask for username and password before granting access to its CLI. Enter the following user credentials: <b>analyst</b> and <b>cyberops</b> as the username and password, respectively.</p> <p class="SubStepAlpha"><span>e.</span><span>&nbsp;&nbsp;</span>Return to the Syslog Server’s AAA Accounting Records window. </p></div>
+                      </div>
+                    </div>
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="964e1930-4efb-4d33-bf60-84b3d3e3dd64" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme" sgpulse-type="block" style="width: 14.2857%;"><!---->
+                
+                <div data-socialgoodpulse-id="964e1930-4efb-4d33-bf60-84b3d3e3dd64" class="964e1930-4efb-4d33-bf60-84b3d3e3dd64 block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="964e1930-4efb-4d33-bf60-84b3d3e3dd64" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+              <div class="block__header-inner ">
+                  
+                    <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$158578489$--><!----><opentextbox-view modelid="bdbab9e9-73e0-491a-95ee-3efc070e24e8" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="bdbab9e9-73e0-491a-95ee-3efc070e24e8" class="component opentextbox bdbab9e9-73e0-491a-95ee-3efc070e24e8  is-undefined   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="bdbab9e9-73e0-491a-95ee-3efc070e24e8" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+              <div class="component__header-inner openTextBox__header-inner">
+                  
+                    <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$158578489$--> <div class="openTextBox__preText"><!--?lit$158578489$--><p class="BodyTextL25">What information is in the log entry?</p></div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$158578489$--><!--?lit$158578489$-->Answer Area<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Type your answer here." aria-label="Type your answer here.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$158578489$-->
+                      <!--?lit$158578489$--><p><span>The log entry will resemble: DATE= 09:56:31 UTC Apr 05 2017 ,Username= analyst ,Caller Id= ,Flag= Start ,NAS IP= 192.168.12.2 ,NAS Port= con0<br> The entry contains the timestamp when the event occurred, the username and password used, R2’s IP address (the device used for the login attempt) and a Start flag. The Start flag indicates that the analyst user logged in at the time shown.</span></p>
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$158578489$-->Show Answer</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$158578489$-->Hide Answer</button>                    
+                      </div>
+                      <!--?lit$158578489$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="d3f5ec3c-7642-4407-8fb2-7c41f6fe2dc7" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme" sgpulse-type="block" style="width: 14.2857%;"><!---->
+                
+                <div data-socialgoodpulse-id="d3f5ec3c-7642-4407-8fb2-7c41f6fe2dc7" class="d3f5ec3c-7642-4407-8fb2-7c41f6fe2dc7 block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="d3f5ec3c-7642-4407-8fb2-7c41f6fe2dc7" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+              <div class="block__header-inner ">
+                  
+                    <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$158578489$--><!----><text-view modelid="b747e050-8cd7-49cc-8063-f9b85d5b9253" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="b747e050-8cd7-49cc-8063-f9b85d5b9253" class="component text b747e050-8cd7-49cc-8063-f9b85d5b9253  is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header text__header">
+              <div class="component__header-inner text__header-inner">
+                  
+                    <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$--> <div class="component__content">
+                      <div tabindex="0" class="component__body text__body">
+                        <div class="component__body-inner text__body-inner"><!--?lit$158578489$--><h4 class="pageTracer-h4-title-hide">Question:</h4> <p class="SubStepAlpha"><span>f.</span><span>&nbsp;&nbsp;</span>On R2, enter the <b>logout</b> command.</p></div>
+                      </div>
+                    </div>
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="b26b3b8a-3c3f-47cb-aab2-042c498e728b" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme" sgpulse-type="block" style="width: 14.2857%;"><!---->
+                
+                <div data-socialgoodpulse-id="b26b3b8a-3c3f-47cb-aab2-042c498e728b" class="b26b3b8a-3c3f-47cb-aab2-042c498e728b block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="b26b3b8a-3c3f-47cb-aab2-042c498e728b" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+              <div class="block__header-inner ">
+                  
+                    <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$158578489$--><!----><opentextbox-view modelid="f49a9037-1412-472e-841d-57a582a26c68" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="f49a9037-1412-472e-841d-57a582a26c68" class="component opentextbox f49a9037-1412-472e-841d-57a582a26c68  is-undefined   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="f49a9037-1412-472e-841d-57a582a26c68" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+              <div class="component__header-inner openTextBox__header-inner">
+                  
+                    <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$158578489$--> <div class="openTextBox__preText"><!--?lit$158578489$--><p class="BodyTextL25">What happened in the AAA Accounting window?</p></div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$158578489$--><!--?lit$158578489$-->Answer Area<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Type your answer here." aria-label="Type your answer here.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$158578489$-->
+                      <!--?lit$158578489$--><p class="BodyTextL50Answer"><span class="AnswerGray"><span style=" border:none"><span style="border:none">A new entry was added, however this time the Stop flag indicates that the user logged out.</span></span></span></p>
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$158578489$-->Show Answer</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$158578489$-->Hide Answer</button>                    
+                      </div>
+                      <!--?lit$158578489$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="c5f2de45-89ae-40f7-8598-4fedb7eef09b" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme" sgpulse-type="block" style="width: 14.2857%;"><!---->
+                
+                <div data-socialgoodpulse-id="c5f2de45-89ae-40f7-8598-4fedb7eef09b" class="c5f2de45-89ae-40f7-8598-4fedb7eef09b block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="c5f2de45-89ae-40f7-8598-4fedb7eef09b" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+              <div class="block__header-inner ">
+                  
+                    <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$158578489$--><!----><text-view modelid="66162d8c-6567-4474-93af-ed6b89808578" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="66162d8c-6567-4474-93af-ed6b89808578" class="component text 66162d8c-6567-4474-93af-ed6b89808578  is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header text__header">
+              <div class="component__header-inner text__header-inner">
+                  
+                    <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$--> <div class="component__content">
+                      <div tabindex="0" class="component__body text__body">
+                        <div class="component__body-inner text__body-inner"><!--?lit$158578489$--><h3>Part 2: NetFlow and Visualization</h3> <p>In the topology, the Syslog server is also a NetFlow collector. The firewall is configured as a NetFlow exporter.</p> <p class="SubStepAlpha"><span>a.</span><span>&nbsp;&nbsp;</span>Click the <b>Syslog Server</b> to bring up its window. Close the AAA Accounting Records window.</p> <p class="SubStepAlpha"><span>b.</span><span>&nbsp;&nbsp;</span>From the <b>Desktop</b> tab, select <b>Netflow Collector</b>. The NetFlow collector services should be turned on.</p> <p class="SubStepAlpha"><span>c.</span><span>&nbsp;&nbsp;</span>From any PC, ping the Corp Web Server at 209.165.200.194. After a brief delay, the pie chart will update to show the new traffic flow.</p> <p><b>Note</b>: The pie charts displayed will vary based on the traffic on the network. Other packets flows, such as EIGRP-related traffic, are being sent between devices. NetFlow is capturing these packets and exporting statistics to the NetFlow Collector. The longer NetFlow is allowed to run on a network, the more traffic statistics will be captured.</p> <h2>Reflection</h2> <p>While the tools presented in this activity are useful,each one has its own service and may need to run on totally different devices.A better way, explored later in the course, is to have all the logging information be concentrated under one tool, allowing for easy cross-referenceand powerful search capabilities. Security information and event management (SIEM)platforms can gather log files and other information from diverse sources andintegrate the information for access by a single tool.</p></div>
+                      </div>
+                    </div>
+                  <!--?lit$158578489$-->
+                  <!--?lit$158578489$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!---->
+                            </div>
+                        </div>
+                        <!--?lit$158578489$-->
+                    </div>
+                </div>
+            </div>
+        <sgpluse-opentextboxcontroller-view modelid="" is-touch="false" fullscreen="true" device="large" browser="Chrome" os="windows" dir="ltr" location="page" theme="dark" orientation="landscape" themetype="article-base-theme"><!---->
+            <div class="openTextBoxController__button-container">
+                <button tabindex="0" class="btn-text showhidebtn openTextBoxController__showButton show-answer show"><!--?lit$158578489$-->Show All Answers</button>    
+                <button tabindex="0" class="btn-text showhidebtn openTextBoxController__hideButton hide-answer hide"><!--?lit$158578489$-->Hide All Answers</button>    
+                <button class="btn-text resetbtn openTextBoxController__resetButton"><!--?lit$158578489$-->Clear My Responses</button>         
+            </div>
+            <!--?lit$158578489$--><hr>
+            <!--?lit$158578489$-->
+                <div class="post-text" tabindex="0">
+                    <!--?lit$158578489$--><span> <span style=" padding-right: 5px; float: left; font-family: arial; font-size: 12px; ">© 2017 - 2022 Cisco and/or its affiliates. All rights reserved. Cisco Public</span> </span>
+                </div>
+                   
+        </sgpluse-opentextboxcontroller-view><script></script>
+<script>
+    window.addEventListener("load", function () {
+      console.log("loaded");
+      document?.querySelectorAll(".answergray").forEach(function (ele) {
+        ele.classList.add("u-display-none");
+      });
+      document?.querySelectorAll(".hide-answer").forEach(function (ele) {
+        ele.classList.add("u-display-none");
+      });
+      document?.querySelectorAll(".show-answer").forEach(function (ele) {
+        ele.addEventListener("click", function (e) {
+          e.currentTarget.nextElementSibling.classList.remove("u-display-none");
+          e.currentTarget
+            .closest(".question-container")
+            ?.querySelectorAll(".answergray")
+            .forEach(function (ele) {
+              ele.classList.remove("u-display-none");
+            });
+          ele.classList.add("u-display-none");
+        });
+      });
+      document?.querySelectorAll(".hide-answer").forEach(function (ele) {
+        ele.addEventListener("click", function (e) {
+          e.currentTarget.previousElementSibling.classList.remove("u-display-none");
+          e.currentTarget
+            .closest(".question-container")
+            ?.querySelectorAll(".answergray")
+            .forEach(function (ele) {
+              ele.classList.add("u-display-none");
+            });
+          ele.classList.add("u-display-none");
+        });
+      });
+      let event = new Event("click", {
+        bubbles: true,
+        cancelable: true,
+      });
+      document
+        ?.querySelectorAll(".openTextBoxController__showButton")
+        .forEach(function (ele) {
+          ele.addEventListener("click", function (e) {
+            e.currentTarget.nextElementSibling.classList.remove("u-display-none");
+            ele.classList.add("u-display-none");
+            document?.querySelectorAll(".show-answer").forEach(function (ele) {
+              ele?.dispatchEvent(event);
+            });
+          });
+        });
+
+      document
+        ?.querySelectorAll(".openTextBoxController__hideButton")
+        .forEach(function (ele) {
+          ele.addEventListener("click", function (e) {
+            e.currentTarget.previousElementSibling.classList.remove("u-display-none");
+            ele.classList.add("u-display-none");
+            document?.querySelectorAll(".hide-answer").forEach(function (ele) {
+              ele?.dispatchEvent(event);
+            });
+          });
+        });
+
+      document
+        ?.querySelectorAll(".openTextBoxController__resetButton")
+        .forEach(function (ele) {
+          ele.addEventListener("click", function (e) {
+            document?.querySelectorAll("textArea").forEach(function (ele) {
+              ele.value = "";
+            });
+          });
+        });
+
+      document
+      ?.querySelectorAll('textarea')
+      .forEach(function (ele){
+        ele.defaultValue = ele.defaultValue.replace(/<!--.*?-->/g, '');
+      })
+        let checkButtonLabel = "check_button_label_placeHolder";
+        let hideButtonLabel = "hide_button_label_placeHolder";
+        document?.querySelectorAll(".check__button").forEach(function (ele) {
+        let answerBox = document.querySelector(".check__solution")
+        if (!answerBox.classList.contains("check__hidden")) {
+          answerBox.classList.add("check__hidden");
+          ele.innerText = checkButtonLabel;
+        }
+          ele.addEventListener("click", function (e) {
+            if (answerBox.classList.contains("check__hidden")) {
+              answerBox.classList.remove("check__hidden")
+              ele.innerText = hideButtonLabel;
+            } else {
+              answerBox.classList.add("check__hidden")
+              ele.innerText = checkButtonLabel;
+            }
+          })
+        })
+    });
+  </script>
+  </body></html>
